@@ -20,6 +20,7 @@ export const site: SiteSettings = {
   ],
   visionTitle: "Our Vision",
   visionText: "We create to inspire, connect and leave a trace of beauty.",
+  pageQuote: "We do not paint objects. We paint impossible memories.",
   contactEmail: "contact@dukelume.com",
   instagramUrl: "https://instagram.com/dukelume",
   footerText: "All rights reserved",
