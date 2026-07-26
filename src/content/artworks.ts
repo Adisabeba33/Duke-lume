@@ -96,7 +96,7 @@ export const artworks: Artwork[] = [
     year: 2024,
     orientation: "portrait",
     style: "surreal",
-    collectionId: "ornamental-nature",
+    collectionId: "allegories",
     medium: "Digital artwork",
     editionType: "Original digital work",
     descriptionShort:
