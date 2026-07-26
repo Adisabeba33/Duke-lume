@@ -3,6 +3,11 @@ import { site } from "@/content/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  // Build stamp is developer information — shown in development and on Vercel
+  // preview deploys, never on the production site.
+  const showVersion =
+    process.env.NODE_ENV !== "production" ||
+    (process.env.NEXT_PUBLIC_VERCEL_ENV ?? "") === "preview";
   const commit = process.env.NEXT_PUBLIC_COMMIT;
   const version = `v${process.env.NEXT_PUBLIC_BUILD_STAMP ?? "dev"}${
     commit ? ` · ${commit}` : ""
@@ -39,12 +44,14 @@ export function Footer() {
         </div>
       </div>
 
-      {/* build version — changes with every deploy */}
-      <div className="container-gallery pb-8">
-        <p className="text-[10px] uppercase tracking-[0.16em] text-[var(--color-text-secondary)]/50">
-          {version}
-        </p>
-      </div>
+      {/* build version — development / preview only */}
+      {showVersion && (
+        <div className="container-gallery pb-8">
+          <p className="text-[10px] uppercase tracking-[0.16em] text-[var(--color-text-secondary)]/50">
+            {version}
+          </p>
+        </div>
+      )}
     </footer>
   );
 }

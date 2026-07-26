@@ -1,8 +1,14 @@
 import { site } from "@/content/site";
 import { SectionLabel } from "@/components/typography/SectionLabel";
+import { ArrowLink } from "@/components/ui/ArrowLink";
 
-/** Quiet closing CTA — no aggressive popup (§8.7). The form is presentational
- *  for now; wiring to Resend / a server action comes with the contact build. */
+/**
+ * Closing CTA (§8.7).
+ *
+ * A subscription form would be decorative until a mailing backend exists, so
+ * this deliberately offers two real actions instead: write to us, or keep up
+ * on Instagram. Swap in a proper form once a newsletter provider is connected.
+ */
 export function NewsletterSection() {
   return (
     <section className="border-t border-[var(--color-line)] bg-[var(--color-surface)]">
@@ -14,31 +20,32 @@ export function NewsletterSection() {
           </h2>
         </div>
 
-        <div className="md:col-span-6 md:pt-2">
-          <form
-            className="flex max-w-md items-center gap-4 border-b border-[var(--color-text-primary)]/40 pb-3"
-            aria-label="Subscribe to updates"
-          >
-            <label htmlFor="newsletter-email" className="sr-only">
-              Email address
-            </label>
-            <input
-              id="newsletter-email"
-              type="email"
-              required
-              placeholder="Your email"
-              className="w-full bg-transparent type-body outline-none placeholder:text-[var(--color-text-secondary)]"
-            />
-            <button
-              type="submit"
-              className="shrink-0 type-micro transition-opacity hover:opacity-60"
-            >
-              Subscribe
-            </button>
-          </form>
+        <div className="md:col-span-6 md:pt-3">
+          <p className="type-body max-w-[46ch] text-[var(--color-text-secondary)]">
+            New works and collections are shown first on Instagram. For
+            exhibitions, collaborations or acquisition inquiries, write to us
+            directly — every message is answered personally.
+          </p>
 
-          <p className="type-small mt-8 max-w-[46ch] text-[var(--color-text-secondary)]">
-            For exhibitions, collaborations or acquisition inquiries:{" "}
+          <div className="mt-8 flex flex-wrap items-center gap-x-10 gap-y-4">
+            <ArrowLink href="/contact">Begin a conversation</ArrowLink>
+            <a
+              href={site.instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="group inline-flex items-center gap-3 type-micro"
+            >
+              <span className="link-underline">Follow on Instagram</span>
+              <span
+                aria-hidden
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              >
+                →
+              </span>
+            </a>
+          </div>
+
+          <p className="type-small mt-8 text-[var(--color-text-secondary)]">
             <a
               href={`mailto:${site.contactEmail}`}
               className="text-[var(--color-text-primary)] link-underline"
