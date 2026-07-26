@@ -123,6 +123,8 @@ export interface SiteSettings {
   featuredArtworkIds: string[];
   visionTitle: string;
   visionText: string;
+  /** Large epigraph used as a "visual pause" between sections. */
+  pageQuote: string;
   contactEmail: string;
   instagramUrl: string;
   footerText: string;

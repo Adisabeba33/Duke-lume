@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import fs from "node:fs";
+import path from "node:path";
 import { artworks, getArtwork } from "@/content/artworks";
 import { getCollection } from "@/content/collections";
-import { ArtworkImage } from "@/components/artwork/ArtworkImage";
-import { SectionLabel } from "@/components/typography/SectionLabel";
+import { ArtworkViewer } from "@/components/artwork/ArtworkViewer";
+import { RelatedWorks } from "@/components/artwork/RelatedWorks";
+import type { Artwork, ArtworkStatus } from "@/content/types";
 
 export function generateStaticParams() {
   return artworks.map((a) => ({ slug: a.slug }));
@@ -30,20 +33,36 @@ export async function generateMetadata({
   };
 }
 
-const META_LABELS: Array<[string, (a: NonNullable<ReturnType<typeof getArtwork>>) => string | undefined]> =
-  [
-    ["Year", (a) => String(a.year)],
-    ["Collection", (a) => (a.collectionId ? getCollection(a.collectionId)?.title : undefined)],
-    ["Medium", (a) => a.medium],
-    [
-      "Dimensions",
-      (a) =>
-        a.dimensionsWidth && a.dimensionsHeight
-          ? `${a.dimensionsWidth} × ${a.dimensionsHeight} ${a.dimensionsUnit ?? "cm"}`
-          : undefined,
-    ],
-    ["Orientation", (a) => a.orientation],
-  ];
+// Detail close-ups are generated as /artworks/details/<slug>-N.jpg. Discover
+// them at build time so no per-work data entry is needed.
+function detailImagesFor(artwork: Artwork) {
+  const dir = path.join(process.cwd(), "public", "artworks", "details");
+  let files: string[] = [];
+  try {
+    files = fs
+      .readdirSync(dir)
+      .filter((f) => f.startsWith(`${artwork.slug}-`) && f.endsWith(".jpg"))
+      .sort();
+  } catch {
+    files = [];
+  }
+  return files.map((f, i) => ({
+    src: `/artworks/details/${f}`,
+    alt: `${artwork.title} — detail ${i + 1}`,
+  }));
+}
+
+const STATUS_LABEL: Record<ArtworkStatus, string | null> = {
+  available: "Available",
+  inquiry_only: "Available by inquiry",
+  print_available: "Prints available",
+  reserved: "Reserved",
+  sold: "Sold",
+  not_for_sale: "Private collection",
+  published: null,
+  draft: null,
+  hidden: null,
+};
 
 export default async function ArtworkPage({
   params,
@@ -54,9 +73,27 @@ export default async function ArtworkPage({
   const artwork = getArtwork(slug);
   if (!artwork) notFound();
 
+  const collection = artwork.collectionId
+    ? getCollection(artwork.collectionId)
+    : undefined;
+  const details = detailImagesFor(artwork);
+
   const idx = artworks.findIndex((a) => a.slug === artwork.slug);
   const prev = artworks[(idx - 1 + artworks.length) % artworks.length];
   const next = artworks[(idx + 1) % artworks.length];
+
+  const dims =
+    artwork.dimensionsWidth && artwork.dimensionsHeight
+      ? `${artwork.dimensionsWidth} × ${artwork.dimensionsHeight} ${artwork.dimensionsUnit ?? "cm"}`
+      : undefined;
+  const meta: Array<[string, string | undefined]> = [
+    ["Year", String(artwork.year)],
+    ["Collection", collection?.title],
+    ["Medium", artwork.medium],
+    ["Dimensions", dims],
+    ["Orientation", artwork.orientation],
+  ];
+  const statusLabel = STATUS_LABEL[artwork.status];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -64,7 +101,6 @@ export default async function ArtworkPage({
     name: artwork.title,
     dateCreated: String(artwork.year),
     artMedium: artwork.medium,
-    artform: "Digital painting",
     creator: { "@type": "Organization", name: "Duke&Lume" },
     ...(artwork.image.src ? { image: artwork.image.src } : {}),
     description: artwork.descriptionShort,
@@ -77,7 +113,6 @@ export default async function ArtworkPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* top nav */}
       <div className="mb-8 flex items-center justify-between type-micro text-[var(--color-text-secondary)]">
         <Link href="/gallery" className="link-underline">
           ← Back to gallery
@@ -87,80 +122,76 @@ export default async function ArtworkPage({
         </Link>
       </div>
 
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-12">
-        {/* work — shown whole, never cropped (§10) */}
-        <div className="md:col-span-8">
-          <div className="border border-[var(--color-line)] bg-[var(--color-surface)]">
-            <ArtworkImage
-              artwork={artwork}
-              priority
-              sizes="(max-width: 768px) 100vw, 66vw"
-            />
-          </div>
+      <ArtworkViewer artwork={artwork} details={details}>
+        {/* exclusivity strip (§9) */}
+        <div className="flex flex-wrap gap-x-3 gap-y-1 type-micro text-[var(--color-text-secondary)]">
+          <span>Original artwork</span>
+          <span aria-hidden>·</span>
+          <span>One of one</span>
+          {statusLabel && (
+            <>
+              <span aria-hidden>·</span>
+              <span className="text-[var(--color-accent)]">{statusLabel}</span>
+            </>
+          )}
         </div>
 
-        {/* details */}
-        <div className="md:col-span-4">
-          <div className="md:sticky md:top-28">
-            <h1 className="type-h1">{artwork.title}</h1>
+        <h1 className="type-h1 mt-5">{artwork.title}</h1>
+        {collection && (
+          <Link
+            href={`/collections/${collection.slug}`}
+            className="mt-3 inline-block type-small text-[var(--color-text-secondary)] link-underline"
+          >
+            {collection.title}
+          </Link>
+        )}
 
-            <dl className="mt-8 space-y-3">
-              {META_LABELS.map(([label, get]) => {
-                const value = get(artwork);
-                if (!value) return null;
-                return (
-                  <div key={label} className="flex gap-4 type-small">
-                    <dt className="w-28 shrink-0 text-[var(--color-text-secondary)]">
-                      {label}
-                    </dt>
-                    <dd className="capitalize">{value}</dd>
-                  </div>
-                );
-              })}
-            </dl>
+        <dl className="mt-8 space-y-3 border-t border-[var(--color-line)] pt-6">
+          {meta.map(([label, value]) =>
+            value ? (
+              <div key={label} className="flex gap-4 type-small">
+                <dt className="w-28 shrink-0 text-[var(--color-text-secondary)]">
+                  {label}
+                </dt>
+                <dd className="capitalize">{value}</dd>
+              </div>
+            ) : null
+          )}
+        </dl>
 
-            {artwork.descriptionLong && (
-              <p className="type-body mt-8 text-[var(--color-text-secondary)]">
-                {artwork.descriptionLong}
-              </p>
-            )}
+        {artwork.descriptionLong && (
+          <p className="type-body mt-8 text-[var(--color-text-secondary)]">
+            {artwork.descriptionLong}
+          </p>
+        )}
 
-            <div className="mt-10">
-              <SectionLabel>Status</SectionLabel>
-              <p className="mt-2 type-body capitalize">
-                {artwork.status.replace(/_/g, " ")}
-              </p>
-            </div>
+        <Link
+          href={`/contact?artwork=${artwork.slug}`}
+          className="mt-10 inline-flex w-full items-center justify-center border border-[var(--color-text-primary)] px-6 py-4 type-micro transition-colors hover:bg-[var(--color-text-primary)] hover:text-[var(--color-background)] md:w-auto"
+        >
+          Inquire about this work
+        </Link>
+      </ArtworkViewer>
 
-            {/* Pre-commerce action (§10, §26) */}
-            <Link
-              href={`/contact?artwork=${artwork.slug}`}
-              className="mt-8 inline-flex w-full items-center justify-center border border-[var(--color-text-primary)] px-6 py-4 type-micro transition-colors hover:bg-[var(--color-text-primary)] hover:text-[var(--color-background)] md:w-auto"
-            >
-              Inquire about this work
-            </Link>
-          </div>
-        </div>
-      </div>
+      <RelatedWorks current={artwork.slug} />
 
-      {/* prev / next */}
       <nav
-        className="mt-20 flex items-center justify-between border-t border-[var(--color-line)] pt-8"
+        className="mt-16 flex items-center justify-between border-t border-[var(--color-line)] pt-8"
         aria-label="Artwork navigation"
       >
-        <Link href={`/artwork/${prev.slug}`} className="group">
+        <Link href={`/artwork/${prev.slug}`} className="group max-w-[45%]">
           <span className="type-micro text-[var(--color-text-secondary)]">
             ← Previous
           </span>
-          <span className="mt-1 block font-[family-name:var(--font-serif)] text-[18px] transition-opacity group-hover:opacity-70">
+          <span className="mt-1 block truncate font-[family-name:var(--font-serif)] text-[18px] transition-opacity group-hover:opacity-70">
             {prev.title}
           </span>
         </Link>
-        <Link href={`/artwork/${next.slug}`} className="group text-right">
+        <Link href={`/artwork/${next.slug}`} className="group max-w-[45%] text-right">
           <span className="type-micro text-[var(--color-text-secondary)]">
             Next →
           </span>
-          <span className="mt-1 block font-[family-name:var(--font-serif)] text-[18px] transition-opacity group-hover:opacity-70">
+          <span className="mt-1 block truncate font-[family-name:var(--font-serif)] text-[18px] transition-opacity group-hover:opacity-70">
             {next.title}
           </span>
         </Link>
