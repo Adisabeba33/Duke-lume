@@ -20,7 +20,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://dukeandlume.com"),
+  metadataBase: new URL("https://dukelume.com"),
   title: {
     default: "Duke&Lume — Digital Art Gallery",
     template: "%s — Duke&Lume",

@@ -20,7 +20,7 @@ export const site: SiteSettings = {
   ],
   visionTitle: "Our Vision",
   visionText: "We create to inspire, connect and leave a trace of beauty.",
-  contactEmail: "contact@dukeandlume.com",
-  instagramUrl: "https://instagram.com/dukeandlume",
+  contactEmail: "contact@dukelume.com",
+  instagramUrl: "https://instagram.com/dukelume",
   footerText: "All rights reserved",
 };

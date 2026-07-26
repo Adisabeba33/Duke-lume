@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { artworks } from "@/content/artworks";
 import { collections } from "@/content/collections";
 
-const BASE = "https://dukeandlume.com";
+const BASE = "https://dukelume.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = ["", "/gallery", "/collections", "/about", "/contact"].map(
