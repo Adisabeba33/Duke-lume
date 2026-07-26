@@ -15,6 +15,9 @@ const nextConfig = {
   env: {
     NEXT_PUBLIC_BUILD_STAMP: buildStamp,
     NEXT_PUBLIC_COMMIT: commit,
+    // "production" | "preview" | "development" on Vercel; used to keep the
+    // build stamp out of the public production footer.
+    NEXT_PUBLIC_VERCEL_ENV: process.env.VERCEL_ENV ?? "development",
   },
   images: {
     remotePatterns: [],
