@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { collections } from "@/content/collections";
-import { getArtwork } from "@/content/artworks";
+import { artworks, getArtwork } from "@/content/artworks";
 import { ArtworkImage } from "@/components/artwork/ArtworkImage";
 import { SectionLabel } from "@/components/typography/SectionLabel";
 import { ArrowLink } from "@/components/ui/ArrowLink";
@@ -17,8 +17,7 @@ export function CollectionPreviewSection() {
   const [active, setActive] = useState(0);
   const activeCollection = ordered[active];
   const preview =
-    getArtwork(activeCollection?.coverArtworkId ?? "") ??
-    getArtwork("gemstone-bloom");
+    getArtwork(activeCollection?.coverArtworkId ?? "") ?? artworks[0];
 
   return (
     <section className="border-t border-[var(--color-line)]">

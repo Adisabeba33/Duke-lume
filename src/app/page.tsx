@@ -11,7 +11,7 @@ export default function HomePage() {
       <HeroSection />
       <FeaturedWorks />
       <VisionSection />
-      <FullBleedArtwork artworkId="the-reading-room" />
+      <FullBleedArtwork artworkId="the-connoisseurs" />
       <CollectionPreviewSection />
       <NewsletterSection />
     </>
