@@ -31,10 +31,20 @@ export function FeaturedWorks() {
         {/* Left half — 2×2 verticals */}
         <div className="grid grid-cols-2 gap-4 md:col-span-5 md:gap-6">
           {verticals.map((a, i) => (
-            <Reveal key={a!.id} delay={i * 60}>
+            // First work opens full-width on mobile, then the rest pair up —
+            // a large-then-small rhythm instead of a uniform grid (§14).
+            <Reveal
+              key={a!.id}
+              delay={i * 60}
+              className={i === 0 ? "col-span-2 md:col-span-1" : ""}
+            >
               <ArtworkCard
                 artwork={a!}
-                sizes="(max-width: 768px) 50vw, 22vw"
+                sizes={
+                  i === 0
+                    ? "(max-width: 768px) 100vw, 22vw"
+                    : "(max-width: 768px) 50vw, 22vw"
+                }
               />
             </Reveal>
           ))}

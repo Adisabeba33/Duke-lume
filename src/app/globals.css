@@ -58,16 +58,16 @@ body {
 /* Typographic scale (§4) --------------------------------------------------- */
 .type-display-xl {
   font-family: var(--font-serif);
-  font-size: clamp(56px, 7vw, 132px);
-  line-height: 0.92;
-  letter-spacing: -0.035em;
+  font-size: clamp(58px, 7.4vw, 146px);
+  line-height: 0.9;
+  letter-spacing: -0.04em;
   font-weight: 400;
 }
 .type-display {
   font-family: var(--font-serif);
-  font-size: clamp(44px, 5vw, 96px);
+  font-size: clamp(44px, 5.2vw, 100px);
   line-height: 0.98;
-  letter-spacing: -0.025em;
+  letter-spacing: -0.028em;
   font-weight: 400;
 }
 .type-h1 {
@@ -92,7 +92,8 @@ body {
 }
 .type-body {
   font-size: clamp(16px, 1.1vw, 18px);
-  line-height: 1.65;
+  line-height: 1.72;
+  letter-spacing: -0.002em;
 }
 .type-small {
   font-size: 13px;
@@ -119,10 +120,10 @@ body {
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(22px) scale(0.99);
     transition:
-      opacity 0.8s var(--ease-quiet),
-      transform 0.8s var(--ease-quiet);
+      opacity 0.95s var(--ease-quiet),
+      transform 0.95s var(--ease-quiet);
     will-change: opacity, transform;
   }
   .reveal.is-visible {
