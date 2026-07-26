@@ -76,6 +76,20 @@ export const collections: Collection[] = [
     coverArtworkId: "grande-dame",
     displayOrder: 5,
   },
+  {
+    id: "places-and-memory",
+    slug: "places-and-memory",
+    title: "Places & Memory",
+    number: "06",
+    yearStart: 2024,
+    yearEnd: 2024,
+    descriptionShort:
+      "Streets, light and stillness — places remembered more than seen.",
+    descriptionLong:
+      "Places & Memory steps outside the studio. Weathered doorways, sunlit lanes, a waiting dog — quiet scenes held in warm light, more about the feeling a place leaves behind than the place itself.",
+    coverArtworkId: "blue-hour-ostuni",
+    displayOrder: 6,
+  },
 ];
 
 export function getCollection(id: string): Collection | undefined {
