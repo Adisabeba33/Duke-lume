@@ -3,6 +3,10 @@ import { site } from "@/content/site";
 
 export function Footer() {
   const year = new Date().getFullYear();
+  const commit = process.env.NEXT_PUBLIC_COMMIT;
+  const version = `v${process.env.NEXT_PUBLIC_BUILD_STAMP ?? "dev"}${
+    commit ? ` · ${commit}` : ""
+  }`;
   return (
     <footer className="border-t border-[var(--color-line)]">
       <div className="container-gallery relative flex flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between md:py-12">
@@ -33,6 +37,13 @@ export function Footer() {
             Email
           </a>
         </div>
+      </div>
+
+      {/* build version — changes with every deploy */}
+      <div className="container-gallery pb-8">
+        <p className="text-[10px] uppercase tracking-[0.16em] text-[var(--color-text-secondary)]/50">
+          {version}
+        </p>
       </div>
     </footer>
   );

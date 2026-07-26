@@ -42,6 +42,7 @@ export function ArtworkViewer({
             type="button"
             onClick={() => open(artwork.image.src!, artwork.image.alt)}
             aria-label="View full image"
+            style={{ viewTransitionName: `art-${artwork.slug}` }}
             className="group relative block w-full cursor-zoom-in border border-[var(--color-line)] bg-[var(--color-surface)]"
           >
             <Image
