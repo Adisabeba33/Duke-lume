@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 import type { Artwork } from "@/content/types";
 import { getCollection } from "@/content/collections";
 import { ArtworkImage } from "./ArtworkImage";
@@ -27,7 +27,10 @@ export function ArtworkCard({
       className={`group block ${className}`}
       aria-label={`${artwork.title}, ${artwork.year}`}
     >
-      <div className="relative overflow-hidden">
+      <div
+        className="relative overflow-hidden"
+        style={{ viewTransitionName: `art-${artwork.slug}` }}
+      >
         <ArtworkImage
           artwork={artwork}
           sizes={sizes}
