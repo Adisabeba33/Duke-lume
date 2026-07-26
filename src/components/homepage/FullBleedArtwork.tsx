@@ -2,7 +2,7 @@ import Link from "next/link";
 import { getArtwork } from "@/content/artworks";
 import { getCollection } from "@/content/collections";
 import { ArtworkImage } from "@/components/artwork/ArtworkImage";
-import { ArrowLink } from "@/components/ui/ArrowLink";
+import { Reveal } from "@/components/ui/Reveal";
 
 /** One full-width work between sections — breaks the "page" feeling and
  *  restores the sense of an exhibition (§8.5). */
@@ -20,7 +20,11 @@ export function FullBleedArtwork({ artworkId }: { artworkId: string }) {
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
         <div className="absolute inset-x-0 bottom-0">
           <div className="container-gallery pb-10 md:pb-14">
-            <div className="flex flex-col gap-4 text-[var(--color-dark-text)] md:flex-row md:items-end md:justify-between">
+            {/* caption fades in a beat after the image (§2) */}
+            <Reveal
+              delay={450}
+              className="flex flex-col gap-4 text-[var(--color-dark-text)] md:flex-row md:items-end md:justify-between"
+            >
               <div>
                 <p className="type-micro text-white/70">
                   {collection ? collection.title : "Duke&Lume"} · {artwork.year}
@@ -36,7 +40,7 @@ export function FullBleedArtwork({ artworkId }: { artworkId: string }) {
                   <span aria-hidden>→</span>
                 </span>
               </Link>
-            </div>
+            </Reveal>
           </div>
         </div>
       </div>
