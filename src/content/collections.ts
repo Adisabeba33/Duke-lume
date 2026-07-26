@@ -90,6 +90,21 @@ export const collections: Collection[] = [
     coverArtworkId: "blue-hour-ostuni",
     displayOrder: 6,
   },
+  {
+    id: "reliquaries",
+    slug: "reliquaries",
+    title: "Reliquaries",
+    number: "07",
+    yearStart: 2024,
+    yearEnd: 2026,
+    descriptionShort:
+      "Husks, pods and petals that cradle a gemstone heart — vessels made to keep something precious.",
+    descriptionLong:
+      "Reliquaries follows a single idea across many works: a plant form opened just enough to reveal the treasure it protects. Amber caught in a spent grain, turquoise wrapped in gauze, crystal blooming from stone — each is a small shrine to the act of keeping.",
+    coverArtworkId: "the-cradle",
+    displayOrder: 7,
+    featured: true,
+  },
 ];
 
 export function getCollection(id: string): Collection | undefined {
