@@ -813,6 +813,22 @@ export function getArtworksByCollection(collectionId: string): Artwork[] {
     .sort((a, b) => (a.galleryOrder ?? 999) - (b.galleryOrder ?? 999));
 }
 
+/**
+ * The cover for a collection: its most recently added work.
+ *
+ * `galleryOrder` is assigned incrementally as works are added, so the highest
+ * value in a collection is the newest one. Add a work to a collection and it
+ * automatically becomes that collection's cover. A collection may still pin a
+ * specific work via `coverArtworkId` if it ever needs to override this.
+ */
+export function getCollectionCover(collectionId: string): Artwork | undefined {
+  const works = getArtworksByCollection(collectionId);
+  if (works.length === 0) return undefined;
+  return works.reduce((latest, w) =>
+    (w.galleryOrder ?? -1) > (latest.galleryOrder ?? -1) ? w : latest
+  );
+}
+
 /** Works that belong in the public gallery (published / for viewing). */
 export function getGalleryArtworks(): Artwork[] {
   const hidden = new Set(["hidden", "draft"]);

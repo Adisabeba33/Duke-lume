@@ -6,7 +6,11 @@ import {
   getCollection,
   getOrderedCollections,
 } from "@/content/collections";
-import { getArtwork, getArtworksByCollection } from "@/content/artworks";
+import {
+  getArtwork,
+  getArtworksByCollection,
+  getCollectionCover,
+} from "@/content/artworks";
 import { ArtworkImage } from "@/components/artwork/ArtworkImage";
 import { EditorialWorks } from "@/components/collection/EditorialWorks";
 
@@ -46,8 +50,12 @@ export default async function CollectionPage({
   if (!collection) notFound();
 
   const works = getArtworksByCollection(collection.id);
+  // Cover = the collection's newest work (a pinned coverArtworkId wins if set).
   const cover =
-    getArtwork(collection.coverArtworkId ?? "") ?? works[0];
+    getArtwork(collection.coverArtworkId ?? "") ??
+    getCollectionCover(collection.id);
+  // The cover is already shown large in the hero — don't repeat it below.
+  const rest = works.filter((w) => w.id !== cover?.id);
 
   const ordered = getOrderedCollections();
   const idx = ordered.findIndex((c) => c.id === collection.id);
@@ -101,16 +109,19 @@ export default async function CollectionPage({
         </div>
       </div>
 
-      {/* the works */}
-      <div className="container-gallery mt-[clamp(72px,12vw,150px)]">
-        {works.length > 0 ? (
-          <EditorialWorks works={works} />
-        ) : (
+      {/* the works (excluding the cover, shown above) */}
+      {rest.length > 0 && (
+        <div className="container-gallery mt-[clamp(72px,12vw,150px)]">
+          <EditorialWorks works={rest} />
+        </div>
+      )}
+      {works.length === 0 && (
+        <div className="container-gallery">
           <p className="type-h3 py-16 text-[var(--color-text-secondary)]">
             Works from this collection are being prepared.
           </p>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* next collection */}
       <div className="container-gallery mt-[clamp(72px,12vw,150px)] border-t border-[var(--color-line)] pt-12">

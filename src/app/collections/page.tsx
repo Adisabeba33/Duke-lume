@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { getOrderedCollections } from "@/content/collections";
-import { getArtwork, getArtworksByCollection } from "@/content/artworks";
+import {
+  getArtwork,
+  getArtworksByCollection,
+  getCollectionCover,
+} from "@/content/artworks";
 import { ArtworkImage } from "@/components/artwork/ArtworkImage";
 import { SectionLabel } from "@/components/typography/SectionLabel";
 import { Reveal } from "@/components/ui/Reveal";
@@ -36,7 +40,8 @@ export default function CollectionsPage() {
       <div className="flex flex-col gap-[clamp(64px,10vw,140px)]">
         {collections.map((c, i) => {
           const works = getArtworksByCollection(c.id);
-          const cover = getArtwork(c.coverArtworkId ?? "") ?? works[0];
+          const cover =
+            getArtwork(c.coverArtworkId ?? "") ?? getCollectionCover(c.id);
           const imageRight = i % 2 === 0;
 
           return (
