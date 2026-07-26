@@ -12,6 +12,8 @@ export const collections: Collection[] = [
     yearEnd: 2025,
     descriptionShort:
       "Stone, crystal and metal studied as if they were living things.",
+    descriptionLong:
+      "Mineral Forms looks at the earth's raw material — crystal, ore, patinated metal — as though it were alive. Each work treats stone the way a portraitist treats a face: with patience, reverence and an eye for the single catching detail.",
     coverArtworkId: "blue-reliquary",
     displayOrder: 1,
     featured: true,
@@ -25,6 +27,8 @@ export const collections: Collection[] = [
     yearEnd: 2024,
     descriptionShort:
       "Growth, decay and organic form — the precious detail found in nature.",
+    descriptionLong:
+      "Ornamental Nature grows where the botanical meets the jeweller's bench. Flowers become gemstones, leaves turn to gold, and the fragile is remade into something that refuses to wilt.",
     coverArtworkId: "porcelain-requiem",
     displayOrder: 2,
     featured: true,
@@ -38,6 +42,8 @@ export const collections: Collection[] = [
     yearEnd: 2026,
     descriptionShort:
       "Portraits of imagined beings, crowned in gold and quiet authority.",
+    descriptionLong:
+      "Noble Creatures is a court of imagined beings — birds and beasts crowned in filigree and gemstone, painted in heavy oil. They meet the viewer as equals: sovereign, unhurried and entirely unbothered.",
     coverArtworkId: "the-sovereign",
     displayOrder: 3,
     featured: true,
@@ -51,6 +57,8 @@ export const collections: Collection[] = [
     yearEnd: 2025,
     descriptionShort:
       "Rooms that never existed, and the characters who quietly inhabit them.",
+    descriptionLong:
+      "Imagined Interiors builds rooms that never existed and fills them with characters who are not quite people. Deadpan luxury, painted with complete seriousness.",
     coverArtworkId: "the-connoisseurs",
     displayOrder: 4,
   },
@@ -63,6 +71,8 @@ export const collections: Collection[] = [
     yearEnd: 2026,
     descriptionShort:
       "Portraits of characters — people met, imagined or remembered, drawn with affection and edge.",
+    descriptionLong:
+      "Personae gathers portraits of character — faces met, imagined or remembered. Each is a study in presence: the way a person insists on being exactly themselves.",
     coverArtworkId: "grande-dame",
     displayOrder: 5,
   },
@@ -70,4 +80,10 @@ export const collections: Collection[] = [
 
 export function getCollection(id: string): Collection | undefined {
   return collections.find((c) => c.id === id || c.slug === id);
+}
+
+export function getOrderedCollections(): Collection[] {
+  return [...collections].sort(
+    (a, b) => (a.displayOrder ?? 99) - (b.displayOrder ?? 99)
+  );
 }
