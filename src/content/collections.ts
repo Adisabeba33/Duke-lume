@@ -105,6 +105,20 @@ export const collections: Collection[] = [
     displayOrder: 7,
     featured: true,
   },
+  {
+    id: "allegories",
+    slug: "allegories",
+    title: "Allegories",
+    number: "08",
+    yearStart: 2026,
+    yearEnd: 2026,
+    descriptionShort:
+      "Objects arranged to carry an argument — old symbols painted plainly.",
+    descriptionLong:
+      "Allegories gathers the works that mean something beyond themselves: a balance, a feather, a stone. Each is a small proposition set out in paint — weight against lightness, permanence against passing — left for the viewer to settle.",
+    coverArtworkId: "the-weighing",
+    displayOrder: 8,
+  },
 ];
 
 export function getCollection(id: string): Collection | undefined {
