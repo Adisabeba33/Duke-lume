@@ -109,6 +109,8 @@ export interface Collection {
   yearEnd?: number;
   descriptionShort?: string;
   descriptionLong?: string;
+  /** Optional pin. Left unset, the cover is the collection's newest work —
+   *  see getCollectionCover(). */
   coverArtworkId?: string;
   featured?: boolean;
   displayOrder?: number;

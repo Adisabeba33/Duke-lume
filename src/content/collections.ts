@@ -14,7 +14,6 @@ export const collections: Collection[] = [
       "Stone, crystal and metal studied as if they were living things.",
     descriptionLong:
       "Mineral Forms looks at the earth's raw material — crystal, ore, patinated metal — as though it were alive. Each work treats stone the way a portraitist treats a face: with patience, reverence and an eye for the single catching detail.",
-    coverArtworkId: "blue-reliquary",
     displayOrder: 1,
     featured: true,
   },
@@ -29,7 +28,6 @@ export const collections: Collection[] = [
       "Growth, decay and organic form — the precious detail found in nature.",
     descriptionLong:
       "Ornamental Nature grows where the botanical meets the jeweller's bench. Flowers become gemstones, leaves turn to gold, and the fragile is remade into something that refuses to wilt.",
-    coverArtworkId: "porcelain-requiem",
     displayOrder: 2,
     featured: true,
   },
@@ -44,7 +42,6 @@ export const collections: Collection[] = [
       "Portraits of imagined beings, crowned in gold and quiet authority.",
     descriptionLong:
       "Noble Creatures is a court of imagined beings — birds and beasts crowned in filigree and gemstone, painted in heavy oil. They meet the viewer as equals: sovereign, unhurried and entirely unbothered.",
-    coverArtworkId: "the-sovereign",
     displayOrder: 3,
     featured: true,
   },
@@ -59,7 +56,6 @@ export const collections: Collection[] = [
       "Rooms that never existed, and the characters who quietly inhabit them.",
     descriptionLong:
       "Imagined Interiors builds rooms that never existed and fills them with characters who are not quite people. Deadpan luxury, painted with complete seriousness.",
-    coverArtworkId: "the-connoisseurs",
     displayOrder: 4,
   },
   {
@@ -73,7 +69,6 @@ export const collections: Collection[] = [
       "Portraits of characters — people met, imagined or remembered, drawn with affection and edge.",
     descriptionLong:
       "Personae gathers portraits of character — faces met, imagined or remembered. Each is a study in presence: the way a person insists on being exactly themselves.",
-    coverArtworkId: "grande-dame",
     displayOrder: 5,
   },
   {
@@ -87,7 +82,6 @@ export const collections: Collection[] = [
       "Streets, light and stillness — places remembered more than seen.",
     descriptionLong:
       "Places & Memory steps outside the studio. Weathered doorways, sunlit lanes, a waiting dog — quiet scenes held in warm light, more about the feeling a place leaves behind than the place itself.",
-    coverArtworkId: "blue-hour-ostuni",
     displayOrder: 6,
   },
   {
@@ -101,7 +95,6 @@ export const collections: Collection[] = [
       "Husks, pods and petals that cradle a gemstone heart — vessels made to keep something precious.",
     descriptionLong:
       "Reliquaries follows a single idea across many works: a plant form opened just enough to reveal the treasure it protects. Amber caught in a spent grain, turquoise wrapped in gauze, crystal blooming from stone — each is a small shrine to the act of keeping.",
-    coverArtworkId: "the-cradle",
     displayOrder: 7,
     featured: true,
   },
@@ -116,7 +109,6 @@ export const collections: Collection[] = [
       "Objects arranged to carry an argument — old symbols painted plainly.",
     descriptionLong:
       "Allegories gathers the works that mean something beyond themselves: a balance, a feather, a stone. Each is a small proposition set out in paint — weight against lightness, permanence against passing — left for the viewer to settle.",
-    coverArtworkId: "the-weighing",
     displayOrder: 8,
   },
 ];
