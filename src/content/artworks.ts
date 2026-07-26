@@ -19,6 +19,7 @@ export const artworks: Artwork[] = [
     title: "The Sovereign",
     year: 2026,
     orientation: "portrait",
+    style: "painterly",
     collectionId: "noble-creatures",
     medium: "Digital painting",
     dimensionsWidth: 60,
@@ -45,6 +46,7 @@ export const artworks: Artwork[] = [
     title: "Gemstone Bloom",
     year: 2024,
     orientation: "portrait",
+    style: "painterly",
     collectionId: "ornamental-nature",
     medium: "Digital painting",
     dimensionsWidth: 60,
@@ -71,6 +73,7 @@ export const artworks: Artwork[] = [
     title: "Mineral Heart",
     year: 2023,
     orientation: "square",
+    style: "photorealistic",
     collectionId: "mineral-forms",
     medium: "Digital painting",
     descriptionShort:
@@ -92,6 +95,7 @@ export const artworks: Artwork[] = [
     title: "Opal Vessel",
     year: 2023,
     orientation: "portrait",
+    style: "modern",
     collectionId: "ornamental-nature",
     medium: "Digital painting",
     descriptionShort:
@@ -113,6 +117,7 @@ export const artworks: Artwork[] = [
     title: "Pearl Tree",
     year: 2024,
     orientation: "portrait",
+    style: "abstract",
     collectionId: "ornamental-nature",
     medium: "Digital painting",
     descriptionShort:
@@ -134,6 +139,7 @@ export const artworks: Artwork[] = [
     title: "The Reading Room",
     year: 2025,
     orientation: "landscape",
+    style: "painterly",
     collectionId: "imagined-interiors",
     medium: "Digital painting",
     descriptionShort:
@@ -155,6 +161,7 @@ export const artworks: Artwork[] = [
     title: "Blue Hour, Ostuni",
     year: 2024,
     orientation: "landscape",
+    style: "photorealistic",
     collectionId: "places-and-memory",
     medium: "Digital painting",
     descriptionShort:
@@ -185,5 +192,13 @@ export function getFeaturedArtworks(): Artwork[] {
 export function getArtworksByCollection(collectionId: string): Artwork[] {
   return artworks
     .filter((a) => a.collectionId === collectionId)
+    .sort((a, b) => (a.galleryOrder ?? 999) - (b.galleryOrder ?? 999));
+}
+
+/** Works that belong in the public gallery (published / for viewing). */
+export function getGalleryArtworks(): Artwork[] {
+  const hidden = new Set(["hidden", "draft"]);
+  return artworks
+    .filter((a) => !hidden.has(a.status))
     .sort((a, b) => (a.galleryOrder ?? 999) - (b.galleryOrder ?? 999));
 }

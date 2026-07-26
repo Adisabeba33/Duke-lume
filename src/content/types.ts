@@ -23,6 +23,25 @@ export type ArtworkStatus =
 /** Controls the visual weight of a work inside editorial grids. */
 export type DisplaySize = "small" | "medium" | "large" | "wide" | "tall" | "full";
 
+/** Duke&Lume works span many styles by design — this is a first-class filter
+ *  dimension, not a hidden tag. Add new values here as the body of work grows. */
+export type ArtStyle =
+  | "painterly"
+  | "modern"
+  | "photorealistic"
+  | "abstract"
+  | "surreal"
+  | "illustrative";
+
+export const ART_STYLE_LABELS: Record<ArtStyle, string> = {
+  painterly: "Painterly",
+  modern: "Modern",
+  photorealistic: "Photorealistic",
+  abstract: "Abstract",
+  surreal: "Surreal",
+  illustrative: "Illustrative",
+};
+
 export interface ArtworkImage {
   /** Path under /public (e.g. "/artworks/the-sovereign.jpg"). Optional while a
    *  work is still being prepared — the UI shows a tonal placeholder instead. */
@@ -48,6 +67,7 @@ export interface Artwork {
   dimensionsHeight?: number;
   dimensionsUnit?: string;
   orientation: Orientation;
+  style?: ArtStyle;
   collectionId?: string;
   subjectTags?: string[];
   colorTags?: string[];
