@@ -11,7 +11,9 @@ import {
   getArtworksByCollection,
   getCollectionCover,
 } from "@/content/artworks";
-import { ArtworkImage } from "@/components/artwork/ArtworkImage";
+import fs from "node:fs";
+import path from "node:path";
+import { CollectionHero } from "@/components/collection/CollectionHero";
 import { EditorialWorks } from "@/components/collection/EditorialWorks";
 
 export function generateStaticParams() {
@@ -34,12 +36,6 @@ export async function generateMetadata({
   };
 }
 
-function period(c: { yearStart?: number; yearEnd?: number }) {
-  if (!c.yearStart) return null;
-  if (c.yearEnd && c.yearEnd !== c.yearStart) return `${c.yearStart}–${c.yearEnd}`;
-  return String(c.yearStart);
-}
-
 export default async function CollectionPage({
   params,
 }: {
@@ -57,6 +53,26 @@ export default async function CollectionPage({
   // The cover is already shown large in the hero — don't repeat it below.
   const rest = works.filter((w) => w.id !== cover?.id);
 
+  // First close-up of the cover, used by the "detail" opening layout.
+  let detailSrc: string | undefined;
+  if (cover) {
+    try {
+      const dir = path.join(process.cwd(), "public", "artworks", "details");
+      const file = fs
+        .readdirSync(dir)
+        .filter((f) => f.startsWith(`${cover.slug}-`) && f.endsWith(".jpg"))
+        .sort()[0];
+      if (file) detailSrc = `/artworks/details/${file}`;
+    } catch {
+      detailSrc = undefined;
+    }
+  }
+
+  // The diptych opening shows a second work beside the cover, so it must not
+  // appear again in the body list either.
+  const bodyWorks =
+    (collection.heroLayout ?? "standard") === "diptych" ? rest.slice(1) : rest;
+
   const ordered = getOrderedCollections();
   const idx = ordered.findIndex((c) => c.id === collection.id);
   const nextCollection = ordered[(idx + 1) % ordered.length];
@@ -73,46 +89,32 @@ export default async function CollectionPage({
           <span className="text-[var(--color-text-primary)]">{collection.title}</span>
         </nav>
 
-        {/* hero */}
-        <div className="mt-10 grid grid-cols-1 items-end gap-10 md:mt-14 md:grid-cols-12 md:gap-12">
-          <div className="md:col-span-6">
-            <div className="flex items-center gap-4">
-              <span className="type-micro text-[var(--color-text-secondary)]">
-                {collection.number}
-              </span>
-              <span aria-hidden className="h-px w-14 bg-[var(--color-line)]" />
-              {period(collection) && (
-                <span className="type-micro text-[var(--color-text-secondary)]">
-                  {period(collection)}
-                </span>
-              )}
-            </div>
-            <h1 className="type-display mt-6">{collection.title}</h1>
-            <p className="type-body mt-7 max-w-[46ch] text-[var(--color-text-secondary)]">
-              {collection.descriptionLong ?? collection.descriptionShort}
-            </p>
-            <p className="mt-8 type-micro text-[var(--color-text-secondary)]">
-              {works.length} {works.length === 1 ? "work" : "works"}
-            </p>
-          </div>
-
-          <div className="md:col-span-6">
-            {cover && (
-              <ArtworkImage
-                artwork={cover}
-                sizes="(max-width: 768px) 100vw, 48vw"
-                priority
-                className="border border-[var(--color-line)]"
-              />
-            )}
-          </div>
-        </div>
       </div>
 
+      {/* opening screen — differs per collection (§15) */}
+      <div className="mt-10 md:mt-14">
+        <CollectionHero
+          collection={collection}
+          cover={cover}
+          second={rest[0]}
+          detailSrc={detailSrc}
+          count={works.length}
+        />
+      </div>
+
+      {/* the collection's epigraph (§16) */}
+      {collection.featuredQuote && (
+        <div className="container-gallery pt-[clamp(56px,9vw,110px)]">
+          <blockquote className="mx-auto max-w-[26ch] text-balance text-center type-h2 italic">
+            {collection.featuredQuote}
+          </blockquote>
+        </div>
+      )}
+
       {/* the works (excluding the cover, shown above) */}
-      {rest.length > 0 && (
+      {bodyWorks.length > 0 && (
         <div className="container-gallery mt-[clamp(72px,12vw,150px)]">
-          <EditorialWorks works={rest} />
+          <EditorialWorks works={bodyWorks} />
         </div>
       )}
       {works.length === 0 && (

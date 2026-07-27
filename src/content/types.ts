@@ -119,9 +119,18 @@ export interface Artwork {
   printAvailable?: boolean;
 
   featured?: boolean;
+  /** Prominence on the homepage and in the gallery archive. */
   homepageOrder?: number;
   galleryOrder?: number;
+  /** Curated position in the Exhibition sequence; falls back to galleryOrder. */
+  exhibitionPosition?: number;
+  /** Visual weight in editorial grids — set by the curator, never derived from
+   *  the image's pixel dimensions (§11). */
   displaySize?: DisplaySize;
+  /** Insert a deliberate breath of empty space before this work. */
+  whitespaceBefore?: boolean;
+  /** Where the caption sits for this work in editorial layouts. */
+  captionPosition?: "below" | "overlay";
 
   image: ArtworkImage;
   detailImages?: ArtworkImage[];
@@ -134,12 +143,25 @@ export interface Artwork {
   seoDescription?: string;
 }
 
+/** How a collection opens, so each reads as its own exhibition (§15). */
+export type CollectionHeroLayout =
+  | "standard"    // text beside cover
+  | "fullscreen"  // cover fills the first screen
+  | "diptych"     // two works side by side
+  | "typographic" // oversized title, cover held back
+  | "dark"        // dark room, spotlit cover
+  | "detail";     // opens on a close-up fragment
+
 export interface Collection {
   id: string;
   slug: string;
   title: string;
   subtitle?: string;
   number: string; // "01", "02", ...
+  /** Opening treatment for this collection's page. Defaults to "standard". */
+  heroLayout?: CollectionHeroLayout;
+  /** A single line held out as the collection's epigraph. */
+  featuredQuote?: string;
   yearStart?: number;
   yearEnd?: number;
   descriptionShort?: string;

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { site } from "@/content/site";
+import { Wordmark } from "@/components/brand/Wordmark";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -16,9 +17,7 @@ export function Footer() {
     <footer className="border-t border-[var(--color-line)]">
       <div className="container-gallery relative flex flex-col gap-6 py-10 md:flex-row md:items-center md:justify-between md:py-12">
         <p className="type-small text-[var(--color-text-secondary)]">
-          <span className="font-[family-name:var(--font-serif)] text-[15px] text-[var(--color-text-primary)]">
-            Duke&amp;Lume
-          </span>{" "}
+          <Wordmark className="text-[16px]" />{" "}
           © {year}
         </p>
 
