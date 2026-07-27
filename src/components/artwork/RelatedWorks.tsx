@@ -1,34 +1,24 @@
-import { artworks, getArtworksByCollection } from "@/content/artworks";
+import { getArtwork, getRelatedArtworks } from "@/content/artworks";
 import { getCollection } from "@/content/collections";
 import { ArtworkCard } from "./ArtworkCard";
 import { SectionLabel } from "@/components/typography/SectionLabel";
 
-/** "You may also like" — prefers the same collection, then fills with others
- *  (§13). Deepens exploration without dead ends. */
+/** Companions for the current work (§21). Curator-chosen first, then the same
+ *  collection, then shared tags / style / orientation. */
 export function RelatedWorks({ current }: { current: string }) {
-  const artwork = artworks.find((a) => a.slug === current);
+  const artwork = getArtwork(current);
   if (!artwork) return null;
 
-  const sameCollection = artwork.collectionId
-    ? getArtworksByCollection(artwork.collectionId).filter(
-        (a) => a.slug !== current
-      )
-    : [];
-  const others = artworks.filter(
-    (a) => a.slug !== current && !sameCollection.includes(a)
-  );
-  const picks = [...sameCollection, ...others].slice(0, 3);
+  const picks = getRelatedArtworks(current, 3);
   if (picks.length === 0) return null;
 
   const collection = artwork.collectionId
     ? getCollection(artwork.collectionId)
     : undefined;
-  // Only claim "More from <collection>" when every pick truly is from it.
-  const allSameCollection = picks.every((p) => sameCollection.includes(p));
-  const label =
-    allSameCollection && collection
-      ? `More from ${collection.title}`
-      : "You may also like";
+  // Only claim the collection when every pick really comes from it.
+  const allSame =
+    !!collection && picks.every((p) => p.collectionId === artwork.collectionId);
+  const label = allSame ? `More from ${collection!.title}` : "You may also like";
 
   return (
     <section className="mt-24 border-t border-[var(--color-line)] pt-14 md:mt-32">

@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import type { Artwork } from "@/content/types";
 import { SectionLabel } from "@/components/typography/SectionLabel";
+import { Lightbox, type LightboxImage } from "./Lightbox";
 
 interface DetailImage {
   src: string;
@@ -11,12 +12,12 @@ interface DetailImage {
 }
 
 /**
- * The interactive media for an artwork page (§7, §8, §10):
- * - hero shown whole (never cropped), with an expand control
- * - a "Details" section of large close-ups
- * - a fullscreen lightbox with click-to-zoom / pan, Escape + backdrop to close
+ * The interactive media for an artwork page (§7, §8, §10, §19):
+ * - hero shown whole (never cropped), opening the viewer
+ * - a "Details" section of large close-ups, each opening at its own index
+ * - one shared fullscreen viewer across the work and all its details
  *
- * The textual info column is passed as children so it can stay server-rendered.
+ * The textual column is passed as children so it stays server-rendered.
  */
 export function ArtworkViewer({
   artwork,
@@ -27,10 +28,22 @@ export function ArtworkViewer({
   details: DetailImage[];
   children: ReactNode;
 }) {
-  const [box, setBox] = useState<{ src: string; alt: string } | null>(null);
-  const open = useCallback(
-    (src: string, alt: string) => setBox({ src, alt }),
-    []
+  const [openAt, setOpenAt] = useState<number | null>(null);
+
+  const images = useMemo<LightboxImage[]>(
+    () => [
+      {
+        src: artwork.image.src!,
+        alt: artwork.image.alt,
+        label: `${artwork.title} — full work`,
+      },
+      ...details.map((d, i) => ({
+        src: d.src,
+        alt: d.alt,
+        label: `${artwork.title} — detail ${i + 1}`,
+      })),
+    ],
+    [artwork, details]
   );
 
   return (
@@ -40,8 +53,9 @@ export function ArtworkViewer({
         <div className="md:col-span-8">
           <button
             type="button"
-            onClick={() => open(artwork.image.src!, artwork.image.alt)}
+            onClick={() => setOpenAt(0)}
             aria-label="View full image"
+            aria-haspopup="dialog"
             style={{ viewTransitionName: `art-${artwork.slug}` }}
             className="group relative block w-full cursor-zoom-in border border-[var(--color-line)] bg-[var(--color-surface)]"
           >
@@ -73,7 +87,8 @@ export function ArtworkViewer({
             <SectionLabel withRule>Details</SectionLabel>
             <button
               type="button"
-              onClick={() => open(artwork.image.src!, artwork.image.alt)}
+              onClick={() => setOpenAt(0)}
+              aria-haspopup="dialog"
               className="group inline-flex items-center gap-2 type-micro"
             >
               <span className="link-underline">View full image</span>
@@ -86,8 +101,9 @@ export function ArtworkViewer({
               <button
                 key={d.src}
                 type="button"
-                onClick={() => open(d.src, d.alt)}
+                onClick={() => setOpenAt(i + 1)}
                 aria-label={`View detail ${i + 1} full size`}
+                aria-haspopup="dialog"
                 className={`relative block cursor-zoom-in overflow-hidden bg-[var(--color-surface)] ${
                   i === 0 ? "sm:col-span-2" : ""
                 }`}
@@ -106,100 +122,15 @@ export function ArtworkViewer({
         </section>
       )}
 
-      {box && (
+      {openAt !== null && (
         <Lightbox
-          src={box.src}
-          alt={box.alt}
+          images={images}
+          startIndex={openAt}
           title={artwork.title}
-          onClose={() => setBox(null)}
+          onClose={() => setOpenAt(null)}
         />
       )}
     </>
-  );
-}
-
-function Lightbox({
-  src,
-  alt,
-  title,
-  onClose,
-}: {
-  src: string;
-  alt: string;
-  title: string;
-  onClose: () => void;
-}) {
-  const [zoom, setZoom] = useState(false);
-  const [origin, setOrigin] = useState("50% 50%");
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
-    };
-    document.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    ref.current?.focus();
-    return () => {
-      document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [onClose]);
-
-  return (
-    <div
-      ref={ref}
-      role="dialog"
-      aria-modal="true"
-      aria-label={`${title} — full image`}
-      tabIndex={-1}
-      onClick={onClose}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-[#0b0b0a]/[0.98] p-4 md:p-10"
-    >
-      <button
-        type="button"
-        onClick={onClose}
-        aria-label="Close"
-        className="absolute right-5 top-5 z-10 flex h-11 w-11 items-center justify-center text-[26px] text-white/70 transition-colors hover:text-white"
-      >
-        <span aria-hidden>×</span>
-      </button>
-
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={src}
-        alt={alt}
-        onClick={(e) => {
-          e.stopPropagation();
-          if (!zoom) {
-            const r = e.currentTarget.getBoundingClientRect();
-            setOrigin(
-              `${((e.clientX - r.left) / r.width) * 100}% ${
-                ((e.clientY - r.top) / r.height) * 100
-              }%`
-            );
-          }
-          setZoom((z) => !z);
-        }}
-        onMouseMove={(e) => {
-          if (!zoom) return;
-          const r = e.currentTarget.getBoundingClientRect();
-          setOrigin(
-            `${((e.clientX - r.left) / r.width) * 100}% ${
-              ((e.clientY - r.top) / r.height) * 100
-            }%`
-          );
-        }}
-        style={{ transformOrigin: origin }}
-        className={`max-h-full max-w-full select-none object-contain transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-          zoom ? "scale-[2] cursor-zoom-out" : "scale-100 cursor-zoom-in"
-        }`}
-      />
-
-      <span className="pointer-events-none absolute bottom-6 left-0 right-0 text-center type-micro text-white/50">
-        {title}
-      </span>
-    </div>
   );
 }
 
