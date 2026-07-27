@@ -19,9 +19,35 @@ const nextConfig = {
     // build stamp out of the public production footer.
     NEXT_PUBLIC_VERCEL_ENV: process.env.VERCEL_ENV ?? "development",
   },
+  // Canonical host is the bare domain. Anything else that can serve this app —
+  // the Vercel preview host, or www — is redirected so links and SEO signals
+  // consolidate on one origin (§24). Only applies in production.
+  async redirects() {
+    if (process.env.VERCEL_ENV !== "production") return [];
+    const to = "https://dukelume.com/:path*";
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "duke-lume.vercel.app" }],
+        destination: to,
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.dukelume.com" }],
+        destination: to,
+        permanent: true,
+      },
+    ];
+  },
   images: {
     remotePatterns: [],
     formats: ["image/avif", "image/webp"],
+    // A tighter ladder than the default: fewer generated variants means a much
+    // higher CDN cache-hit rate, and 2560 is the widest public copy we ship (§25).
+    deviceSizes: [420, 640, 828, 1080, 1440, 1920, 2560],
+    imageSizes: [200, 320, 480],
+    minimumCacheTTL: 60 * 60 * 24 * 30,
   },
 };
 

@@ -177,7 +177,7 @@ function Field({
       </label>
       {input}
       {error && (
-        <p id={`${id}-error`} className="type-small text-[var(--color-accent)]">
+        <p id={`${id}-error`} className="type-small text-[var(--color-accent-text)]">
           {error}
         </p>
       )}

@@ -258,7 +258,7 @@ export default async function ArtworkPage({
       <ArtworkViewer artwork={artwork} details={details}>
         {/* concept line — names the idea before the title (§18) */}
         {artwork.conceptLine && (
-          <p className="type-micro text-[var(--color-accent)]">
+          <p className="type-micro text-[var(--color-accent-text)]">
             {artwork.conceptLine}
           </p>
         )}
@@ -305,7 +305,7 @@ export default async function ArtworkPage({
         <div className="mt-10 border-t border-[var(--color-line)] pt-6">
           <SectionLabel>Availability</SectionLabel>
           {statusLabel && (
-            <p className="mt-3 type-body text-[var(--color-accent)]">{statusLabel}</p>
+            <p className="mt-3 type-body text-[var(--color-accent-text)]">{statusLabel}</p>
           )}
           {edition.length > 0 ? (
             <dl className="mt-4 space-y-2">

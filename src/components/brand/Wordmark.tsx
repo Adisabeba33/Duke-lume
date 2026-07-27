@@ -15,7 +15,7 @@ export function Wordmark({
   tone?: "ink" | "light";
 }) {
   const base = tone === "light" ? "text-[var(--color-dark-text)]" : "text-[var(--color-text-primary)]";
-  const amp = tone === "light" ? "text-[var(--color-dark-text)]/70" : "text-[var(--color-accent)]";
+  const amp = tone === "light" ? "text-[var(--color-dark-text)]/70" : "text-[var(--color-accent-text)]";
 
   return (
     <span
