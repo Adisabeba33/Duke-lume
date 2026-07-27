@@ -782,6 +782,34 @@ export const artworks: Artwork[] = [
       alt: "A photorealistic dark interior in warm lamplight: a large gilt-framed painting of a stacked column of caged iridescent opal spheres hangs above a fluted marble-topped cabinet with dried flowers, crystals and an amber lamp.",
     },
   },
+  {
+    id: "regalia",
+    slug: "regalia",
+    title: "Regalia",
+    year: 2026,
+    conceptLine: "Dressed for a ceremony no one remembers",
+    orientation: "portrait",
+    style: "painterly",
+    collectionId: "noble-creatures",
+    medium: "Digital painting",
+    processNote:
+      "Palette-knife plumage built in thick passes, then gold leaf laid into the ground behind it. The chains and settings were painted last, so the jewels sit on the feathers rather than over them.",
+    descriptionShort:
+      "A crane in full court ornament — chains, cabochons and a single gold beak cutting the frame.",
+    descriptionLong:
+      "Regalia is the most adorned of the Noble Creatures: pink, violet and deep teal plumage laid on in heavy strokes, hung with chains and set stones. The gold beak runs the whole width of the picture and holds the opulence together — without it the ornament would have nowhere to rest.",
+    status: "available",
+    featured: false,
+    galleryOrder: 31,
+    displaySize: "tall",
+    tone: ["#2f3a3c", "#c2a45a"],
+    image: {
+      src: "/artworks/regalia.jpg",
+      width: 1085,
+      height: 1450,
+      alt: "A heavily impasto painting of a crane in profile, its plumage moving from blush pink through violet to deep teal, hung with fine gold chains, gemstone cabochons and a jewelled collar, with a long gold beak crossing the frame against a gold-leaf and plaster background.",
+    },
+  },
 ];
 
 export function getArtwork(id: string): Artwork | undefined {
