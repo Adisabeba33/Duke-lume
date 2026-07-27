@@ -53,15 +53,50 @@ export interface ArtworkImage {
   blurDataURL?: string;
 }
 
+/**
+ * What actually exists and what is actually for sale (§17).
+ *
+ * Every field is optional and nothing is assumed: the artwork page states only
+ * what is set here. This is deliberate — claiming "original artwork, one of
+ * one" for a digital piece that has no physical original would be untrue.
+ */
+export interface EditionInfo {
+  /** True only if a physical original object exists. */
+  physicalOriginal?: boolean;
+  /** True if the digital file itself is sold to the buyer. */
+  digitalFileForSale?: boolean;
+  /** True if prints can be ordered. */
+  printAvailable?: boolean;
+  /** e.g. "Archival pigment print on cotton rag". */
+  printProcess?: string;
+  /** e.g. ["40 × 60 cm", "70 × 100 cm"]. */
+  printSizes?: string[];
+  /** Limited-edition size and how many remain, when the edition is limited. */
+  editionSize?: number;
+  editionRemaining?: number;
+  /** Signed certificate supplied with the work. */
+  certificateOfAuthenticity?: boolean;
+  /** Similar works can be commissioned. */
+  commissionAvailable?: boolean;
+}
+
 export interface Artwork {
   id: string;
   slug: string;
   title: string;
   subtitle?: string;
   year: number;
+  /** One short line that names the idea, shown above the title. */
+  conceptLine?: string;
   descriptionShort?: string;
   descriptionLong?: string;
   story?: string;
+  /** How the piece was built — material / process note. */
+  processNote?: string;
+  /** Curator-chosen companions, used before any automatic suggestion. */
+  relatedArtworkIds?: string[];
+  /** What exists and what is for sale. Absent = nothing is claimed. */
+  edition?: EditionInfo;
   medium?: string;
   dimensionsWidth?: number;
   dimensionsHeight?: number;

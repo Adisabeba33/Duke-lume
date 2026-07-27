@@ -14,11 +14,13 @@ export const artworks: Artwork[] = [
     slug: "the-sovereign",
     title: "The Sovereign",
     year: 2026,
+    conceptLine: "Authority without a throne",
     orientation: "portrait",
     style: "painterly",
     collectionId: "noble-creatures",
     medium: "Digital painting",
-    editionType: "Original digital work",
+    processNote:
+      "Built up in heavy digital oil, then worked over by hand at full size — the filigree and set stones were painted last, one catch of light at a time.",
     descriptionShort:
       "A jewelled bird crowned in gold and gemstone, meeting the viewer's eye without fear.",
     descriptionLong:
@@ -40,11 +42,13 @@ export const artworks: Artwork[] = [
     slug: "the-connoisseurs",
     title: "The Connoisseurs",
     year: 2025,
+    conceptLine: "Refinement, played entirely straight",
     orientation: "landscape",
     style: "photorealistic",
     collectionId: "imagined-interiors",
     medium: "Digital artwork",
-    editionType: "Original digital work",
+    processNote:
+      "Composed like a period interior photograph: one window as the only light source, everything else built to obey it.",
     descriptionShort:
       "Two bulldogs in couture take their morning in a sunlit Parisian salon, absorbed in the world of art.",
     descriptionLong:
@@ -71,7 +75,6 @@ export const artworks: Artwork[] = [
     style: "photorealistic",
     collectionId: "mineral-forms",
     medium: "Digital artwork",
-    editionType: "Original digital work",
     descriptionShort:
       "A gem-crusted stone bowl bearing jewelled blooms, set deep in a weathered niche.",
     descriptionLong:
@@ -98,7 +101,6 @@ export const artworks: Artwork[] = [
     style: "surreal",
     collectionId: "allegories",
     medium: "Digital artwork",
-    editionType: "Original digital work",
     descriptionShort:
       "A blue-and-white vase caught mid-dissolution, its painted roses drifting into ink and smoke.",
     descriptionLong:
@@ -125,7 +127,6 @@ export const artworks: Artwork[] = [
     style: "photorealistic",
     collectionId: "personae",
     medium: "Digital artwork",
-    editionType: "Original digital work",
     descriptionShort:
       "A portrait of late-blooming glamour — violet curls, rose-tinted lenses and rings on every finger.",
     descriptionLong:
@@ -152,7 +153,6 @@ export const artworks: Artwork[] = [
     style: "painterly",
     collectionId: "noble-creatures",
     medium: "Digital painting",
-    editionType: "Original digital work",
     descriptionShort:
       "A long-necked bird in heavy oil, one eye ringed by a crown of gold and gemstone.",
     descriptionLong:
@@ -179,7 +179,6 @@ export const artworks: Artwork[] = [
     style: "painterly",
     collectionId: "ornamental-nature",
     medium: "Digital painting",
-    editionType: "Original digital work",
     descriptionShort:
       "An ornate golden chalice holding a bloom of blue gemstones, in the manner of an old-master still life.",
     descriptionLong:
@@ -205,7 +204,6 @@ export const artworks: Artwork[] = [
     style: "painterly",
     collectionId: "noble-creatures",
     medium: "Digital painting",
-    editionType: "Original digital work",
     descriptionShort:
       "A jewelled kingfisher with a rose-pink crest, feathers set like stained glass against verdigris.",
     descriptionLong:
@@ -231,7 +229,6 @@ export const artworks: Artwork[] = [
     style: "photorealistic",
     collectionId: "mineral-forms",
     medium: "Digital artwork",
-    editionType: "Original digital work",
     descriptionShort:
       "A single boulder split open to reveal a hoard of raw crystal and coloured ore.",
     descriptionLong:
@@ -257,7 +254,6 @@ export const artworks: Artwork[] = [
     style: "photorealistic",
     collectionId: "imagined-interiors",
     medium: "Digital artwork",
-    editionType: "Original digital work",
     descriptionShort:
       "A poodle in a robe takes a manicure and a magazine at an impeccably cream spa.",
     descriptionLong:
@@ -284,7 +280,6 @@ export const artworks: Artwork[] = [
     style: "photorealistic",
     collectionId: "noble-creatures",
     medium: "Digital artwork",
-    editionType: "Original digital work",
     descriptionShort:
       "A heron cast in white and gold, standing perfectly still on a marble plinth.",
     descriptionLong:
@@ -310,7 +305,6 @@ export const artworks: Artwork[] = [
     style: "illustrative",
     collectionId: "ornamental-nature",
     medium: "Digital artwork",
-    editionType: "Original digital work",
     descriptionShort:
       "Two cranes turned toward one another, sculpted in soft pastel relief among reeds.",
     descriptionLong:
@@ -336,7 +330,6 @@ export const artworks: Artwork[] = [
     style: "painterly",
     collectionId: "reliquaries",
     medium: "Digital painting",
-    editionType: "Original digital work",
     descriptionShort:
       "A pastel bloom opening around a banded agate held at its heart.",
     descriptionLong:
@@ -362,7 +355,6 @@ export const artworks: Artwork[] = [
     style: "photorealistic",
     collectionId: "places-and-memory",
     medium: "Digital artwork",
-    editionType: "Original digital work",
     descriptionShort:
       "A dog waits in the doorway of a weathered house, half in shadow.",
     descriptionLong:
@@ -388,7 +380,6 @@ export const artworks: Artwork[] = [
     style: "photorealistic",
     collectionId: "places-and-memory",
     medium: "Digital artwork",
-    editionType: "Original digital work",
     descriptionShort:
       "A pale-blue camper resting in a sunlit southern-Italian lane.",
     descriptionLong:
@@ -414,7 +405,6 @@ export const artworks: Artwork[] = [
     style: "photorealistic",
     collectionId: "personae",
     medium: "Digital artwork",
-    editionType: "Original digital work",
     descriptionShort:
       "A face painted as a landscape — cypress, a golden temple and a crescent moon.",
     descriptionLong:
@@ -440,7 +430,6 @@ export const artworks: Artwork[] = [
     style: "modern",
     collectionId: "personae",
     medium: "Digital artwork",
-    editionType: "Original digital work",
     descriptionShort:
       "An elegance without a face — a sculpted figure in a flowing teal-and-bronze gown.",
     descriptionLong:
@@ -466,7 +455,6 @@ export const artworks: Artwork[] = [
     style: "painterly",
     collectionId: "personae",
     medium: "Digital painting",
-    editionType: "Original digital work",
     descriptionShort:
       "A profile in an amber headdress and armoured collar, painted in the old manner.",
     descriptionLong:
@@ -488,11 +476,13 @@ export const artworks: Artwork[] = [
     slug: "homeland",
     title: "Homeland",
     year: 2025,
+    conceptLine: "A place worn on the skin",
     orientation: "portrait",
     style: "photorealistic",
     collectionId: "personae",
     medium: "Digital artwork",
-    editionType: "Original digital work",
+    processNote:
+      "The savanna was painted as its own landscape first, then laid over the portrait and pushed until light on skin and light in the scene agreed.",
     descriptionShort:
       "A savanna sunset painted across a face — an acacia, the low sun, a gold ring.",
     descriptionLong:
@@ -518,7 +508,6 @@ export const artworks: Artwork[] = [
     style: "photorealistic",
     collectionId: "mineral-forms",
     medium: "Digital artwork",
-    editionType: "Original digital work",
     descriptionShort:
       "A translucent shell of chalcedony opened to show crystal, amber orbs and pale fibre.",
     descriptionLong:
@@ -544,7 +533,6 @@ export const artworks: Artwork[] = [
     style: "photorealistic",
     collectionId: "mineral-forms",
     medium: "Digital artwork",
-    editionType: "Original digital work",
     descriptionShort:
       "A monstrance of smoky quartz, malachite and mother-of-pearl, blooming from a fractured stone base.",
     descriptionLong:
@@ -570,7 +558,6 @@ export const artworks: Artwork[] = [
     style: "painterly",
     collectionId: "reliquaries",
     medium: "Digital painting",
-    editionType: "Original digital work",
     descriptionShort:
       "A bronze husk holding a turquoise core wrapped in gauze, roots reaching above it.",
     descriptionLong:
@@ -596,7 +583,6 @@ export const artworks: Artwork[] = [
     style: "painterly",
     collectionId: "reliquaries",
     medium: "Digital painting",
-    editionType: "Original digital work",
     descriptionShort:
       "A lantern of oat stems and gauze holding a turquoise stone, painted in pale sea light.",
     descriptionLong:
@@ -622,7 +608,6 @@ export const artworks: Artwork[] = [
     style: "painterly",
     collectionId: "reliquaries",
     medium: "Digital painting",
-    editionType: "Original digital work",
     descriptionShort:
       "A blush petal opened around a glowing amber stone held in a membrane of light.",
     descriptionLong:
@@ -644,11 +629,13 @@ export const artworks: Artwork[] = [
     slug: "ember-grain",
     title: "Ember Grain",
     year: 2026,
+    conceptLine: "The last heat of a harvest",
     orientation: "portrait",
     style: "painterly",
     collectionId: "reliquaries",
     medium: "Digital painting",
-    editionType: "Original digital work",
+    processNote:
+      "The husk was painted in dry, dusty strokes so the amber seam could stay glassy — the contrast is in the surface, not the colour.",
     descriptionShort:
       "A split husk of violet grain revealing a seam of burning amber.",
     descriptionLong:
@@ -674,7 +661,6 @@ export const artworks: Artwork[] = [
     style: "photorealistic",
     collectionId: "imagined-interiors",
     medium: "Digital artwork",
-    editionType: "Original digital work",
     descriptionShort:
       "A lion in a quilted velvet robe takes his cigar lit for him in a green drawing room.",
     descriptionLong:
@@ -700,7 +686,6 @@ export const artworks: Artwork[] = [
     style: "painterly",
     collectionId: "allegories",
     medium: "Digital painting",
-    editionType: "Original digital work",
     descriptionShort:
       "An antique balance holding a violet stone against a single white feather.",
     descriptionLong:
@@ -726,7 +711,6 @@ export const artworks: Artwork[] = [
     style: "painterly",
     collectionId: "mineral-forms",
     medium: "Digital painting",
-    editionType: "Original digital work",
     descriptionShort:
       "A crescent of nacre cradling a moonstone, mounted on a jewelled reliquary base.",
     descriptionLong:
@@ -748,11 +732,13 @@ export const artworks: Artwork[] = [
     slug: "the-orb",
     title: "The Orb",
     year: 2026,
+    conceptLine: "A vessel made, not grown",
     orientation: "portrait",
     style: "photorealistic",
     collectionId: "reliquaries",
     medium: "Digital artwork",
-    editionType: "Original digital work",
+    processNote:
+      "Metal, stone and cabochons were composed as separate studies, then assembled and relit so the brass reads as one continuous cage.",
     descriptionShort:
       "A brass armillary cage holding a smoky quartz heart, set with opals on a malachite base.",
     descriptionLong:
@@ -778,7 +764,6 @@ export const artworks: Artwork[] = [
     style: "photorealistic",
     collectionId: "imagined-interiors",
     medium: "Digital artwork",
-    editionType: "Original digital work",
     descriptionShort:
       "A stacked column of opal spheres, framed and hung in a lamplit marble room.",
     descriptionLong:
@@ -827,6 +812,83 @@ export function getCollectionCover(collectionId: string): Artwork | undefined {
   return works.reduce((latest, w) =>
     (w.galleryOrder ?? -1) > (latest.galleryOrder ?? -1) ? w : latest
   );
+}
+
+/**
+ * Companions for an artwork (§21), in priority order:
+ *   1. curator-chosen relatedArtworkIds
+ *   2. same collection
+ *   3. shared colour / mood / subject tags
+ *   4. same style, then same orientation
+ */
+export function getRelatedArtworks(slug: string, limit = 3): Artwork[] {
+  const current = getArtwork(slug);
+  if (!current) return [];
+
+  const picked: Artwork[] = [];
+  const add = (a?: Artwork) => {
+    if (a && a.slug !== slug && !picked.some((p) => p.slug === a.slug)) picked.push(a);
+  };
+
+  // 1 — manual
+  for (const id of current.relatedArtworkIds ?? []) add(getArtwork(id));
+
+  const pool = getGalleryArtworks().filter((a) => a.slug !== slug);
+
+  // 2 — same collection
+  if (current.collectionId) {
+    for (const a of pool.filter((a) => a.collectionId === current.collectionId)) add(a);
+  }
+
+  // 3 — shared tags
+  const tags = new Set([
+    ...(current.colorTags ?? []),
+    ...(current.moodTags ?? []),
+    ...(current.subjectTags ?? []),
+  ]);
+  if (tags.size > 0) {
+    const scored = pool
+      .map((a) => {
+        const theirs = [
+          ...(a.colorTags ?? []),
+          ...(a.moodTags ?? []),
+          ...(a.subjectTags ?? []),
+        ];
+        return { a, score: theirs.filter((t) => tags.has(t)).length };
+      })
+      .filter((x) => x.score > 0)
+      .sort((x, y) => y.score - x.score);
+    for (const { a } of scored) add(a);
+  }
+
+  // 4 — same style, then same orientation
+  for (const a of pool.filter((a) => a.style === current.style)) add(a);
+  for (const a of pool.filter((a) => a.orientation === current.orientation)) add(a);
+
+  return picked.slice(0, limit);
+}
+
+/**
+ * Previous / next within the work's own collection (§20). Never wraps silently:
+ * at either end the neighbour is undefined and the page offers the next
+ * collection instead.
+ */
+export function getCollectionNeighbours(slug: string): {
+  prev?: Artwork;
+  next?: Artwork;
+  siblings: Artwork[];
+  index: number;
+} {
+  const current = getArtwork(slug);
+  if (!current?.collectionId) return { siblings: [], index: -1 };
+  const siblings = getArtworksByCollection(current.collectionId);
+  const index = siblings.findIndex((a) => a.slug === slug);
+  return {
+    prev: index > 0 ? siblings[index - 1] : undefined,
+    next: index >= 0 && index < siblings.length - 1 ? siblings[index + 1] : undefined,
+    siblings,
+    index,
+  };
 }
 
 /** Works that belong in the public gallery (published / for viewing). */
