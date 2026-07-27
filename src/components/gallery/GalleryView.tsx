@@ -93,8 +93,20 @@ export function GalleryView({ artworks }: { artworks: Artwork[] }) {
     ];
   }, [artworks]);
 
+  // Exhibition sequence is curator-controlled (§11): exhibitionPosition first,
+  // falling back to galleryOrder. Never derived from image dimensions.
+  const sequence = useMemo(
+    () =>
+      [...artworks].sort(
+        (a, b) =>
+          (a.exhibitionPosition ?? a.galleryOrder ?? 999) -
+          (b.exhibitionPosition ?? b.galleryOrder ?? 999)
+      ),
+    [artworks]
+  );
+
   const filtered = useMemo(() => {
-    return artworks.filter((a) => {
+    return sequence.filter((a) => {
       const pass = (key: string, value: string | undefined) =>
         !selection[key] || selection[key] === "all" || selection[key] === value;
       return (
@@ -105,7 +117,7 @@ export function GalleryView({ artworks }: { artworks: Artwork[] }) {
         pass("year", String(a.year))
       );
     });
-  }, [artworks, selection]);
+  }, [sequence, selection]);
 
   const activeCount = Object.values(selection).filter((v) => v && v !== "all").length;
 
@@ -201,9 +213,9 @@ export function GalleryView({ artworks }: { artworks: Artwork[] }) {
             return (
               <div
                 key={a.id}
-                className={`mb-8 break-inside-avoid md:mb-14 ${
-                  feature ? "md:[column-span:all]" : ""
-                }`}
+                className={`break-inside-avoid ${
+                  a.whitespaceBefore ? "mt-[clamp(56px,10vw,140px)]" : ""
+                } mb-8 md:mb-14 ${feature ? "md:[column-span:all]" : ""}`}
               >
                 <ArtworkCard
                   artwork={a}

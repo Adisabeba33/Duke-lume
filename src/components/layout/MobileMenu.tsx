@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { site } from "@/content/site";
+import { Wordmark } from "@/components/brand/Wordmark";
 
 interface NavItem {
   label: string;
@@ -81,9 +82,10 @@ export function MobileMenu({
           <Link
             href="/"
             onClick={onClose}
-            className="font-[family-name:var(--font-serif)] text-[22px] md:text-[26px]"
+            className="leading-none"
           >
-            Duke&amp;Lume
+            <Wordmark tone="light" className="text-[22px] md:text-[26px]" />
+            <span className="sr-only">Duke and Lume</span>
           </Link>
           <button
             type="button"

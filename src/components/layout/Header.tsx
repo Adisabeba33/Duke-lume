@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { Link } from "next-view-transitions";
 import { useEffect, useRef, useState } from "react";
 import { MobileMenu } from "./MobileMenu";
+import { Wordmark } from "@/components/brand/Wordmark";
 
 const NAV = [
   { label: "Gallery", href: "/gallery" },
@@ -81,9 +82,10 @@ export function Header() {
           <Link
             href="/"
             aria-label="Duke and Lume — home"
-            className="font-[family-name:var(--font-serif)] text-[23px] font-medium leading-none tracking-[-0.015em] md:text-[27px]"
+            className="leading-none"
           >
-            Duke<span className="text-[var(--color-accent)]">&amp;</span>Lume
+            <Wordmark className="text-[23px] md:text-[27px]" />
+            <span className="sr-only">Duke and Lume</span>
           </Link>
 
           <nav className="hidden items-center gap-9 md:flex" aria-label="Primary">

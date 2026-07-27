@@ -236,6 +236,7 @@ export const artworks: Artwork[] = [
     status: "not_for_sale",
     featured: false,
     galleryOrder: 9,
+    whitespaceBefore: true,
     displaySize: "tall",
     tone: ["#2a2320", "#7a5a4a"],
     image: {
@@ -565,6 +566,7 @@ export const artworks: Artwork[] = [
     status: "available",
     featured: false,
     galleryOrder: 22,
+    whitespaceBefore: true,
     displaySize: "tall",
     tone: ["#171a1f", "#2f7f8c"],
     image: {

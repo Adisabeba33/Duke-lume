@@ -8,6 +8,9 @@ export const collections: Collection[] = [
     slug: "mineral-forms",
     title: "Mineral Forms",
     number: "01",
+    heroLayout: "detail",
+    featuredQuote:
+      "Stone remembers longer than we do.",
     yearStart: 2023,
     yearEnd: 2025,
     descriptionShort:
@@ -22,6 +25,9 @@ export const collections: Collection[] = [
     slug: "ornamental-nature",
     title: "Ornamental Nature",
     number: "02",
+    heroLayout: "standard",
+    featuredQuote:
+      "Made to outlast the season it imitates.",
     yearStart: 2023,
     yearEnd: 2024,
     descriptionShort:
@@ -36,6 +42,9 @@ export const collections: Collection[] = [
     slug: "noble-creatures",
     title: "Noble Creatures",
     number: "03",
+    heroLayout: "dark",
+    featuredQuote:
+      "They do not perform. They preside.",
     yearStart: 2024,
     yearEnd: 2026,
     descriptionShort:
@@ -50,6 +59,9 @@ export const collections: Collection[] = [
     slug: "imagined-interiors",
     title: "Imagined Interiors",
     number: "04",
+    heroLayout: "fullscreen",
+    featuredQuote:
+      "Every room here has been lived in by someone impossible.",
     yearStart: 2023,
     yearEnd: 2025,
     descriptionShort:
@@ -63,6 +75,9 @@ export const collections: Collection[] = [
     slug: "personae",
     title: "Personae",
     number: "05",
+    heroLayout: "typographic",
+    featuredQuote:
+      "A face is the last thing to surrender.",
     yearStart: 2024,
     yearEnd: 2026,
     descriptionShort:
@@ -76,6 +91,9 @@ export const collections: Collection[] = [
     slug: "places-and-memory",
     title: "Places & Memory",
     number: "06",
+    heroLayout: "standard",
+    featuredQuote:
+      "More about what a place leaves behind than the place.",
     yearStart: 2024,
     yearEnd: 2024,
     descriptionShort:
@@ -89,6 +107,9 @@ export const collections: Collection[] = [
     slug: "reliquaries",
     title: "Reliquaries",
     number: "07",
+    heroLayout: "diptych",
+    featuredQuote:
+      "A vessel is an argument for keeping something.",
     yearStart: 2024,
     yearEnd: 2026,
     descriptionShort:
@@ -103,6 +124,9 @@ export const collections: Collection[] = [
     slug: "allegories",
     title: "Allegories",
     number: "08",
+    heroLayout: "typographic",
+    featuredQuote:
+      "Weight against lightness; permanence against passing.",
     yearStart: 2026,
     yearEnd: 2026,
     descriptionShort:
