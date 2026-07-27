@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, Instrument_Serif } from "next/font/google";
+import { Inter, Cormorant_Garamond } from "next/font/google";
 import { ViewTransitions } from "next-view-transitions";
 import { site } from "@/content/site";
 import { Header } from "@/components/layout/Header";
@@ -12,11 +12,14 @@ const inter = Inter({
   display: "swap",
 });
 
-const instrumentSerif = Instrument_Serif({
+// Cormorant Garamond — the face used in the Duke & Lume wordmark, so headings
+// and the logo read as one system. Wider and calmer than the previous
+// Instrument Serif, which was narrow enough to look vertically stretched.
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: "400",
+  weight: ["300", "400", "500"],
   style: ["normal", "italic"],
-  variable: "--font-instrument-serif",
+  variable: "--font-serif-display",
   display: "swap",
 });
 
@@ -47,7 +50,7 @@ export default function RootLayout({
 }) {
   return (
     <ViewTransitions>
-      <html lang="en" className={`${inter.variable} ${instrumentSerif.variable}`}>
+      <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
         <body>
           <a
             href="#main"
