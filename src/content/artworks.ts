@@ -963,6 +963,39 @@ export const artworks: Artwork[] = [
       alt: "A photorealistic white-and-gold heron sculpture standing on a marble plinth in a bright modern interior, with a large abstract painting behind it.",
     },
   },
+  {
+    id: "the-elder",
+    slug: "the-elder",
+    title: "The Elder",
+    year: 2026,
+    conceptLine: "Nothing to prove, and everything hung on it",
+    orientation: "portrait",
+    style: "painterly",
+    collectionId: "noble-creatures",
+    medium: "Digital painting",
+    processNote:
+      "The wall was built up and scraped back until the plaster showed gold, then the animal was laid over it as one pale mass — the settings and stones are the only part of the picture given a hard edge.",
+    descriptionShort:
+      "A pale bull facing the viewer square on, hung with gold filigree, amethyst and pearl.",
+    descriptionLong:
+      "The Elder is the heaviest presence in the Noble Creatures court and the least interested in the fact. Horns banded in gold, a browpiece of amethyst set between them, strands of pearl falling from the ears — ornament piled onto an animal that would stand exactly the same way without any of it.",
+    relatedArtworkIds: ["the-treasurer", "regalia"],
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
+    featured: false,
+    galleryOrder: 34,
+    displaySize: "tall",
+    subjectTags: ["bull", "animal", "jewellery"],
+    colorTags: ["cream", "gold", "amethyst"],
+    moodTags: ["calm", "regal", "still"],
+    tone: ["#6a4f5e", "#c8a86a"],
+    image: {
+      src: "/artworks/the-elder.jpg",
+      width: 1112,
+      height: 1415,
+      alt: "A painterly frontal portrait of a cream-coloured bull with gold-banded horns, a gold filigree browpiece set with a large amethyst, strands of pearl and amethyst beads hanging from its ears, and a jewelled collar, against a heavily textured purple and gold-leaf background.",
+    },
+  },
 ];
 
 export function getArtwork(id: string): Artwork | undefined {
