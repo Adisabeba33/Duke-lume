@@ -1,4 +1,4 @@
-import type { Artwork } from "./types";
+import type { Artwork, EditionInfo } from "./types";
 
 // ---------------------------------------------------------------------------
 // Artworks — real Duke&Lume works.
@@ -7,6 +7,19 @@ import type { Artwork } from "./types";
 // here with `image.src`, its real width/height and an `alt` text. `tone` stays
 // as a graceful fallback if an image is ever missing.
 // ---------------------------------------------------------------------------
+
+/**
+ * House terms, identical for every work (§17). The works are digital, so no
+ * physical original exists; the buyer receives the file itself, and prints can
+ * be ordered. Print process, print sizes and any edition limit stay unset
+ * until they are actually decided — the artwork page states only what is set
+ * here, so an empty field claims nothing.
+ */
+const DIGITAL_EDITION: EditionInfo = {
+  physicalOriginal: false,
+  digitalFileForSale: true,
+  printAvailable: true,
+};
 
 export const artworks: Artwork[] = [
   {
@@ -25,7 +38,8 @@ export const artworks: Artwork[] = [
       "A jewelled bird crowned in gold and gemstone, meeting the viewer's eye without fear.",
     descriptionLong:
       "The Sovereign sits at the threshold between the animal and the divine — feathers rendered as enamel and precious stone, a gaze that asks for nothing. It is the opening voice of the Noble Creatures collection.",
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 1,
     displaySize: "tall",
@@ -53,6 +67,7 @@ export const artworks: Artwork[] = [
       "Two bulldogs in couture take their morning in a sunlit Parisian salon, absorbed in the world of art.",
     descriptionLong:
       "The Connoisseurs imagines a household where taste is everything and no one is quite human. One reads Le Monde de l'Art; the other watches the city from the balcony. A gentle satire of refinement, painted with complete seriousness.",
+    edition: DIGITAL_EDITION,
     status: "inquiry_only",
     featured: true,
     homepageOrder: 4,
@@ -79,7 +94,8 @@ export const artworks: Artwork[] = [
       "A gem-crusted stone bowl bearing jewelled blooms, set deep in a weathered niche.",
     descriptionLong:
       "Blue Reliquary treats stone and gemstone as something almost sacred. Raw crystal, patinated metal and deep-blue blossoms gather in a vessel that feels excavated rather than made — a small altar to the mineral world.",
-    status: "not_for_sale",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: true,
     homepageOrder: 3,
     galleryOrder: 3,
@@ -105,7 +121,8 @@ export const artworks: Artwork[] = [
       "A blue-and-white vase caught mid-dissolution, its painted roses drifting into ink and smoke.",
     descriptionLong:
       "Porcelain Requiem holds a single quiet contradiction — a vessel built to last forever, shown in the act of coming undone. The cobalt roses lift off the glaze and disperse as ink: a meditation on beauty and impermanence.",
-    status: "print_available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: true,
     homepageOrder: 1,
     galleryOrder: 4,
@@ -131,7 +148,8 @@ export const artworks: Artwork[] = [
       "A portrait of late-blooming glamour — violet curls, rose-tinted lenses and rings on every finger.",
     descriptionLong:
       "Grande Dame is a study in refusing to fade. Every choice — the lilac hair, the tinted glasses, the crimson mouth — is a small act of defiance, worn with total ease.",
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: true,
     homepageOrder: 2,
     galleryOrder: 5,
@@ -157,7 +175,8 @@ export const artworks: Artwork[] = [
       "A long-necked bird in heavy oil, one eye ringed by a crown of gold and gemstone.",
     descriptionLong:
       "The Regent is painted almost as sculpture — thick, deliberate strokes building feather and jewel alike. Where The Sovereign meets your gaze head-on, the Regent turns in profile, aloof and unhurried.",
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: true,
     homepageOrder: 5,
     galleryOrder: 6,
@@ -183,7 +202,8 @@ export const artworks: Artwork[] = [
       "An ornate golden chalice holding a bloom of blue gemstones, in the manner of an old-master still life.",
     descriptionLong:
       "Gemstone Bloom borrows the language of the classical still life — dark ground, single light, a precious vessel — and swaps petals for polished stone. Beauty made to outlast the season it imitates.",
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 7,
     displaySize: "tall",
@@ -208,7 +228,8 @@ export const artworks: Artwork[] = [
       "A jewelled kingfisher with a rose-pink crest, feathers set like stained glass against verdigris.",
     descriptionLong:
       "The Herald wears its plumage as regalia — wings inlaid with pink and blue stones bound in gold, feathers rendered as cloisonné. A messenger dressed for an occasion that never ends.",
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 8,
     displaySize: "tall",
@@ -233,7 +254,8 @@ export const artworks: Artwork[] = [
       "A single boulder split open to reveal a hoard of raw crystal and coloured ore.",
     descriptionLong:
       "Mother Lode frames raw geology like treasure in a vault — topaz blue, ruby red and rough ore packed into one stone, set into a weathered niche. The earth's own jewellery box, caught mid-discovery.",
-    status: "not_for_sale",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 9,
     whitespaceBefore: true,
@@ -259,6 +281,7 @@ export const artworks: Artwork[] = [
       "A poodle in a robe takes a manicure and a magazine at an impeccably cream spa.",
     descriptionLong:
       "The Appointment continues the world of The Connoisseurs — a life of complete leisure lived by creatures who are not quite people. Here a poodle reads PAPLUX while a groomer sees to its paw. Deadpan luxury.",
+    edition: DIGITAL_EDITION,
     status: "inquiry_only",
     featured: true,
     homepageOrder: 6,
@@ -289,6 +312,7 @@ export const artworks: Artwork[] = [
     descriptionLong:
       "The Treasurer takes the corvid's logic entirely seriously: everything it ever carried off, worn at once. Amethyst at the brow, citrine and peridot down the wing, a gilded plinth to stand on — and underneath all of it a plain black bird that has clearly won.",
     relatedArtworkIds: ["regalia", "the-regent"],
+    edition: DIGITAL_EDITION,
     status: "inquiry_only",
     featured: true,
     homepageOrder: 7,
@@ -318,7 +342,8 @@ export const artworks: Artwork[] = [
       "Two cranes turned toward one another, sculpted in soft pastel relief among reeds.",
     descriptionLong:
       "The Confidants is modelled like a plaster bas-relief — a pair of cranes among reeds and blossom, rendered in low sculptural relief. Two creatures caught mid-conversation, forever.",
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 12,
     displaySize: "tall",
@@ -343,7 +368,8 @@ export const artworks: Artwork[] = [
       "A pastel bloom opening around a banded agate held at its heart.",
     descriptionLong:
       "Agate Bloom states the Reliquaries idea in miniature — the botanical and the mineral fused. Thick, buttery strokes build petals of peach and blue around a single striped stone.",
-    status: "print_available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 13,
     displaySize: "tall",
@@ -368,7 +394,8 @@ export const artworks: Artwork[] = [
       "A dog waits in the doorway of a weathered house, half in shadow.",
     descriptionLong:
       "At the Threshold is quiet and unstaged — a village dog sitting where the light meets the dark of an old doorway. A picture about waiting, and about places that hold their own memory.",
-    status: "not_for_sale",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 14,
     displaySize: "wide",
@@ -393,7 +420,8 @@ export const artworks: Artwork[] = [
       "A pale-blue camper resting in a sunlit southern-Italian lane.",
     descriptionLong:
       "Blue Hour, Ostuni is a postcard from a place remembered more than seen — a weathered blue camper wedged into a narrow stone lane, flowers at its feet, warm light on old plaster.",
-    status: "print_available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 15,
     displaySize: "wide",
@@ -418,7 +446,8 @@ export const artworks: Artwork[] = [
       "A face painted as a landscape — cypress, a golden temple and a crescent moon.",
     descriptionLong:
       "Arcadia turns a portrait into a country. A Mediterranean scene — cypress trees, a gilded temple, a thin gold moon — is painted across the skin, so the person and the place they carry become one image.",
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 16,
     displaySize: "tall",
@@ -443,7 +472,8 @@ export const artworks: Artwork[] = [
       "An elegance without a face — a sculpted figure in a flowing teal-and-bronze gown.",
     descriptionLong:
       "The Muse is a persona rather than a person: a faceless figure in a wide hat and liquid gown, cast as if in enamelled metal and set in a marble niche. Style itself, standing still.",
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 17,
     displaySize: "tall",
@@ -468,6 +498,7 @@ export const artworks: Artwork[] = [
       "A profile in an amber headdress and armoured collar, painted in the old manner.",
     descriptionLong:
       "The Empress is painted like a rediscovered old master — a woman in profile, eyes lowered, crowned in a headdress of amber and blackened metal. Composure rendered as regalia.",
+    edition: DIGITAL_EDITION,
     status: "inquiry_only",
     featured: false,
     galleryOrder: 18,
@@ -496,7 +527,8 @@ export const artworks: Artwork[] = [
       "A savanna sunset painted across a face — an acacia, the low sun, a gold ring.",
     descriptionLong:
       "Homeland carries a place on the skin: an African savanna at dusk — a lone acacia, banded sunset light — painted across a serene face with eyes closed. Belonging, worn openly.",
-    status: "print_available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 19,
     displaySize: "tall",
@@ -521,7 +553,8 @@ export const artworks: Artwork[] = [
       "A translucent shell of chalcedony opened to show crystal, amber orbs and pale fibre.",
     descriptionLong:
       "Chalcedony sits on a windowsill like a relic caught in low light — a great translucent shell split open to reveal quartz, amber cabochons and a braid of pale fibre. Geology as reliquary.",
-    status: "not_for_sale",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 20,
     displaySize: "tall",
@@ -546,7 +579,8 @@ export const artworks: Artwork[] = [
       "A monstrance of smoky quartz, malachite and mother-of-pearl, blooming from a fractured stone base.",
     descriptionLong:
       "Crystalline Heart is the collection at its most ceremonial — quartz points, malachite and nacre radiating like petals from a jewelled core, set on a kintsugi-veined slab. Part mineral specimen, part reliquary, part sunburst.",
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 21,
     displaySize: "tall",
@@ -571,7 +605,8 @@ export const artworks: Artwork[] = [
       "A bronze husk holding a turquoise core wrapped in gauze, roots reaching above it.",
     descriptionLong:
       "The Cradle is the darkest of the Reliquaries — a metallic pod opened in near-blackness, its turquoise heart veiled in gauze while fine roots search the air above. Protection rendered as architecture.",
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 22,
     whitespaceBefore: true,
@@ -597,7 +632,8 @@ export const artworks: Artwork[] = [
       "A lantern of oat stems and gauze holding a turquoise stone, painted in pale sea light.",
     descriptionLong:
       "Seedkeeper is the light counterpart to The Cradle — a woven cage of oat stems and cobweb-thin gauze cupping a turquoise stone, set against broad strokes of sea-green and cream. Fragility doing the work of a vault.",
-    status: "print_available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 23,
     displaySize: "tall",
@@ -622,7 +658,8 @@ export const artworks: Artwork[] = [
       "A blush petal opened around a glowing amber stone held in a membrane of light.",
     descriptionLong:
       "Amber Vespers is the warmest of the Reliquaries — a peach-and-rose bract parted to show amber lit from within, sealed in a translucent membrane. Evening light, kept.",
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 24,
     displaySize: "tall",
@@ -650,6 +687,7 @@ export const artworks: Artwork[] = [
       "A split husk of violet grain revealing a seam of burning amber.",
     descriptionLong:
       "Ember Grain sets the series' warmest core against its coolest surroundings — a violet ear of wheat splitting open on a lens of amber that burns like a coal. The last heat of a harvest.",
+    edition: DIGITAL_EDITION,
     status: "inquiry_only",
     featured: false,
     galleryOrder: 25,
@@ -675,6 +713,7 @@ export const artworks: Artwork[] = [
       "A lion in a quilted velvet robe takes his cigar lit for him in a green drawing room.",
     descriptionLong:
       "The Patriarch is the head of the household the Imagined Interiors keep circling — a lion in emerald velvet, entirely at ease while two butlers attend to the fire, the silver and the flame at the end of his cigar. Old money, older instincts.",
+    edition: DIGITAL_EDITION,
     status: "inquiry_only",
     featured: false,
     galleryOrder: 26,
@@ -700,7 +739,8 @@ export const artworks: Artwork[] = [
       "An antique balance holding a violet stone against a single white feather.",
     descriptionLong:
       "The Weighing sets a polished violet stone against one pale feather on a crescent balance — an old allegory painted plainly: what has weight, and what has lightness, and how rarely they settle.",
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 27,
     displaySize: "tall",
@@ -725,7 +765,8 @@ export const artworks: Artwork[] = [
       "A crescent of nacre cradling a moonstone, mounted on a jewelled reliquary base.",
     descriptionLong:
       "Moonstone Sceptre is painted like a museum plate — a pale crescent of mother-of-pearl holding a single luminous moonstone above a stone tablet set with cabochons and worn gold glyphs. An object whose ceremony has been forgotten but not its authority.",
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 28,
     displaySize: "tall",
@@ -753,7 +794,8 @@ export const artworks: Artwork[] = [
       "A brass armillary cage holding a smoky quartz heart, set with opals on a malachite base.",
     descriptionLong:
       "The Orb is the Reliquaries idea built in metal rather than grown — a banded brass cage clasping a great smoky quartz, studded with opal and garnet, rising from a rough malachite-veined block. A vessel made deliberately, for keeping.",
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 29,
     displaySize: "tall",
@@ -778,7 +820,8 @@ export const artworks: Artwork[] = [
       "A stacked column of opal spheres, framed and hung in a lamplit marble room.",
     descriptionLong:
       "Opal Tower shows a Duke&Lume object where it belongs — a column of caged opal spheres, framed in gilt and hung above a fluted cabinet in warm lamplight. A picture of a picture, and of the room that wanted it.",
-    status: "print_available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 30,
     displaySize: "tall",
@@ -806,7 +849,8 @@ export const artworks: Artwork[] = [
       "A crane in full court ornament — chains, cabochons and a single gold beak cutting the frame.",
     descriptionLong:
       "Regalia is the most adorned of the Noble Creatures: pink, violet and deep teal plumage laid on in heavy strokes, hung with chains and set stones. The gold beak runs the whole width of the picture and holds the opulence together — without it the ornament would have nowhere to rest.",
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 31,
     displaySize: "tall",
@@ -835,6 +879,7 @@ export const artworks: Artwork[] = [
     descriptionLong:
       "The Long Field gives almost everything to the sky and the grass, and lets one tree carry the rest. The horizon sits low and far, the colour never rises above ochre and dust — a place recalled rather than visited, where the only thing memory kept in focus is the tree.",
     relatedArtworkIds: ["blue-hour-ostuni", "at-the-threshold"],
+    edition: DIGITAL_EDITION,
     status: "inquiry_only",
     featured: true,
     homepageOrder: 9,
@@ -868,6 +913,7 @@ export const artworks: Artwork[] = [
     descriptionLong:
       "Nacre answers the question the rest of the Reliquaries leave open. Every other vessel in the series was given something to keep; this one made it. The shell is split between a barnacled grey exterior and an interior of layered mother-of-pearl, and the pearl sitting in it is too large to be anything but deliberate.",
     relatedArtworkIds: ["the-orb", "the-cradle"],
+    edition: DIGITAL_EDITION,
     status: "inquiry_only",
     featured: true,
     homepageOrder: 8,
@@ -901,7 +947,8 @@ export const artworks: Artwork[] = [
     descriptionLong:
       "Gilded Heron is a room with a single occupant, and the occupant is an object. Polished metal on marble, a large canvas behind it, nothing else asked to happen — a house that keeps a bird which will never move, and treats that as entirely ordinary.",
     relatedArtworkIds: ["opal-tower", "the-patriarch"],
-    status: "available",
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
     featured: false,
     // Re-filed rather than newly added, so it keeps its place in the sequence
     // (just after The Appointment) instead of claiming the newest slot — which
