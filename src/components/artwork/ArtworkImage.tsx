@@ -1,5 +1,6 @@
 import Image from "next/image";
 import type { Artwork } from "@/content/types";
+import { BLUR } from "@/content/blur";
 
 /**
  * Renders an artwork while preserving its true aspect ratio (§20, §33).
@@ -26,6 +27,8 @@ export function ArtworkImage({
 }) {
   const { image, tone, title, year } = artwork;
   const ratio = image.width / image.height;
+  // Generated LQIP, so the work fades in rather than popping (§25).
+  const blur = image.blurDataURL ?? (image.src ? BLUR[image.src] : undefined);
 
   return (
     <div
@@ -41,8 +44,8 @@ export function ArtworkImage({
           fill
           sizes={sizes}
           priority={priority}
-          placeholder={image.blurDataURL ? "blur" : "empty"}
-          blurDataURL={image.blurDataURL}
+          placeholder={blur ? "blur" : "empty"}
+          blurDataURL={blur}
           className="object-cover transition-transform duration-[900ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
         />
       ) : (

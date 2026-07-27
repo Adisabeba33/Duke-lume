@@ -4,17 +4,45 @@ A quiet, museum-like digital gallery. Built with **Next.js (App Router) + TypeSc
 The interface stays out of the way so the works lead — warm milky background, large Instrument Serif
 headings, an asymmetric editorial grid, and calm motion.
 
-This repository is **Stage 1 (Foundation) + the full Home page**. The design system, layout, content
-model, SEO plumbing and a working artwork page are in place; the remaining pages are on-brand
-placeholders ready to be built out.
+Every page is built: home, gallery (Exhibition + Archive with URL-synced filters), collections and
+collection pages, artwork pages with a fullscreen viewer, About, and a working Contact form. Thirty
+works across eight collections, with no placeholder copy anywhere.
 
 ## Getting started
 
 ```bash
 npm install
 npm run dev        # http://localhost:3000
-npm run build      # production build (fully static)
+npm run build      # production build
 ```
+
+## Quality checks
+
+```bash
+npm run typecheck  # tsc --noEmit
+npm run lint       # eslint (Next core-web-vitals + TS)
+npm test           # vitest — content model & helpers
+npm run test:e2e   # playwright — desktop + 320px journeys
+npm run check      # typecheck + lint + test + build
+npm run blur       # regenerate LQIP placeholders after adding images
+```
+
+E2E builds and serves the production app. On a machine that already ships a
+Chromium, point at it instead of downloading one:
+
+```bash
+PW_CHROMIUM_PATH=/path/to/chrome npm run test:e2e
+```
+
+## Environment variables
+
+| Variable | Purpose |
+| --- | --- |
+| `RESEND_API_KEY` | Enables contact-form delivery. Without it the form says so plainly and points to the email address. |
+| `INQUIRY_FROM_EMAIL` | Verified sender address for those emails. |
+| `INQUIRY_TO_EMAIL` | Where inquiries land (defaults to the site contact address). |
+
+Nothing else is required — the site builds and runs without any secrets.
 
 ## How content works (the "throw a painting into chat" flow)
 

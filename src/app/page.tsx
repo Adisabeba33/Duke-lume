@@ -1,3 +1,4 @@
+import { site } from "@/content/site";
 import { HeroSection } from "@/components/homepage/HeroSection";
 import { FeaturedWorks } from "@/components/homepage/FeaturedWorks";
 import { SoloWork } from "@/components/homepage/SoloWork";
@@ -12,9 +13,39 @@ import { NewsletterSection } from "@/components/homepage/NewsletterSection";
 // mood change from one section to the next so no screen is predictable (§1,2,11):
 // dense hero → dense grid → a tiny work in whitespace → a cinematic full-bleed
 // → a calm statement → a dark spotlit moment → a quiet quote → collections.
+const BASE = "https://dukelume.com";
+
 export default function HomePage() {
+  const orgLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": `${BASE}/#organization`,
+        name: "Duke&Lume",
+        url: BASE,
+        logo: `${BASE}/icon-512.png`,
+        email: site.contactEmail,
+        sameAs: [site.instagramUrl],
+        description: site.siteDescription,
+      },
+      {
+        "@type": "WebSite",
+        "@id": `${BASE}/#website`,
+        url: BASE,
+        name: "Duke&Lume — Digital Art Gallery",
+        publisher: { "@id": `${BASE}/#organization` },
+        inLanguage: "en",
+      },
+    ],
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgLd) }}
+      />
       <HeroSection />
       <FeaturedWorks />
       <SoloWork artworkId="mother-lode" align="right" />

@@ -16,6 +16,8 @@ import path from "node:path";
 import { CollectionHero } from "@/components/collection/CollectionHero";
 import { EditorialWorks } from "@/components/collection/EditorialWorks";
 
+const BASE = "https://dukelume.com";
+
 export function generateStaticParams() {
   return collections.map((c) => ({ slug: c.slug }));
 }
@@ -28,11 +30,28 @@ export async function generateMetadata({
   const { slug } = await params;
   const c = getCollection(slug);
   if (!c) return { title: "Collection not found" };
+  // Cover art doubles as the collection's social preview (§22).
+  const cover =
+    getArtwork(c.coverArtworkId ?? "") ?? getCollectionCover(c.id);
   return {
     title: `${c.title} — Collection`,
     description: c.descriptionShort,
     alternates: { canonical: `/collections/${c.slug}` },
-    openGraph: { title: `${c.title} — Duke&Lume Collection`, description: c.descriptionShort },
+    openGraph: {
+      title: `${c.title} — Duke&Lume Collection`,
+      description: c.descriptionShort,
+      url: `${BASE}/collections/${c.slug}`,
+      images: cover?.image.src
+        ? [
+            {
+              url: `${BASE}${cover.image.src}`,
+              width: cover.image.width,
+              height: cover.image.height,
+              alt: cover.image.alt,
+            },
+          ]
+        : undefined,
+    },
   };
 }
 
@@ -77,8 +96,46 @@ export default async function CollectionPage({
   const idx = ordered.findIndex((c) => c.id === collection.id);
   const nextCollection = ordered[(idx + 1) % ordered.length];
 
+  const seriesLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWorkSeries",
+    name: collection.title,
+    url: `${BASE}/collections/${collection.slug}`,
+    description: collection.descriptionLong ?? collection.descriptionShort,
+    creator: { "@type": "Organization", name: "Duke&Lume", url: BASE },
+    numberOfItems: works.length,
+    ...(cover?.image.src ? { image: `${BASE}${cover.image.src}` } : {}),
+    hasPart: works.map((w) => ({
+      "@type": "VisualArtwork",
+      name: w.title,
+      url: `${BASE}/artwork/${w.slug}`,
+    })),
+  };
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+      { "@type": "ListItem", position: 2, name: "Collections", item: `${BASE}/collections` },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: collection.title,
+        item: `${BASE}/collections/${collection.slug}`,
+      },
+    ],
+  };
+
   return (
     <article className="pb-24 pt-[120px] md:pt-[150px]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(seriesLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
       <div className="container-gallery">
         {/* breadcrumb (§23) */}
         <nav aria-label="Breadcrumb" className="type-micro text-[var(--color-text-secondary)]">

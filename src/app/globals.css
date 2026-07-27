@@ -10,11 +10,16 @@
   --color-background: #f5f3ef;
   --color-surface: #faf9f6;
   --color-text-primary: #171717;
-  --color-text-secondary: #77736d;
+  /* #77736d measured 4.25:1 on the background — just under AA for body text,
+     so secondary copy is a shade deeper while staying soft (§27). */
+  --color-text-secondary: #6f6b64;
   --color-line: rgba(23, 23, 23, 0.14);
   --color-dark-section: #151716;
   --color-dark-text: #f4f1ea;
-  --color-accent: #8b7252; /* muted bronze — used sparingly */
+  /* Brand bronze, for marks and rules. */
+  --color-accent: #8b7252;
+  /* Bronze for text: the brand tone only reaches 4.10:1, this one clears AA. */
+  --color-accent-text: #7d6444;
 
   /* Type ------------------------------------------------------------------ */
   --font-serif: var(--font-serif-display), Georgia, "Times New Roman", serif;
