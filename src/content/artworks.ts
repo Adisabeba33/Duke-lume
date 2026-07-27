@@ -810,6 +810,70 @@ export const artworks: Artwork[] = [
       alt: "A heavily impasto painting of a crane in profile, its plumage moving from blush pink through violet to deep teal, hung with fine gold chains, gemstone cabochons and a jewelled collar, with a long gold beak crossing the frame against a gold-leaf and plaster background.",
     },
   },
+  {
+    id: "the-long-field",
+    slug: "the-long-field",
+    title: "The Long Field",
+    year: 2026,
+    conceptLine: "One tree, keeping the whole plain",
+    orientation: "portrait",
+    style: "painterly",
+    collectionId: "places-and-memory",
+    medium: "Digital painting",
+    processNote:
+      "Sky and field were scumbled in thin, dry layers until the weave of the ground showed through; the tree is the only part painted wet, so it holds the single clear edge in the picture.",
+    descriptionShort:
+      "A single golden tree standing alone in an open plain, under a sky that takes up most of the frame.",
+    descriptionLong:
+      "The Long Field gives almost everything to the sky and the grass, and lets one tree carry the rest. The horizon sits low and far, the colour never rises above ochre and dust — a place recalled rather than visited, where the only thing memory kept in focus is the tree.",
+    relatedArtworkIds: ["blue-hour-ostuni", "at-the-threshold"],
+    status: "inquiry_only",
+    featured: false,
+    galleryOrder: 32,
+    displaySize: "tall",
+    subjectTags: ["tree", "field", "horizon"],
+    colorTags: ["ochre", "gold", "grey"],
+    moodTags: ["quiet", "solitary", "still"],
+    tone: ["#b9b3a6", "#8a6a2c"],
+    image: {
+      src: "/artworks/the-long-field.jpg",
+      width: 1122,
+      height: 1402,
+      alt: "A painterly landscape of a solitary round-crowned tree with golden autumn foliage standing in a wide ochre field, beneath a pale grey sky with one soft cloud and distant low hills on the horizon.",
+    },
+  },
+  {
+    id: "nacre",
+    slug: "nacre",
+    title: "Nacre",
+    year: 2026,
+    conceptLine: "The one vessel that grew its own treasure",
+    orientation: "portrait",
+    style: "photorealistic",
+    collectionId: "reliquaries",
+    medium: "Digital artwork",
+    processNote:
+      "Lit as a single-source still life so the shell's rough outer crust and its polished inner lining come from the same light — the pearl is the only surface allowed a direct highlight.",
+    descriptionShort:
+      "An oyster shell held open around a great pearl, its rough crust giving way to a mother-of-pearl interior.",
+    descriptionLong:
+      "Nacre answers the question the rest of the Reliquaries leave open. Every other vessel in the series was given something to keep; this one made it. The shell is split between a barnacled grey exterior and an interior of layered mother-of-pearl, and the pearl sitting in it is too large to be anything but deliberate.",
+    relatedArtworkIds: ["the-orb", "the-cradle"],
+    status: "inquiry_only",
+    featured: false,
+    galleryOrder: 33,
+    displaySize: "tall",
+    subjectTags: ["shell", "pearl", "vessel"],
+    colorTags: ["pearl", "grey", "cream"],
+    moodTags: ["quiet", "still", "precious"],
+    tone: ["#4c4a46", "#d6cec1"],
+    image: {
+      src: "/artworks/nacre.jpg",
+      width: 1144,
+      height: 1375,
+      alt: "A photorealistic still life of a large oyster shell standing upright and open, its rough grey outer crust curving around a lustrous mother-of-pearl interior that cradles a single oversized baroque pearl, against a mottled grey and bronze wall.",
+    },
+  },
 ];
 
 export function getArtwork(id: string): Artwork | undefined {
