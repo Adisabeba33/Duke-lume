@@ -273,28 +273,35 @@ export const artworks: Artwork[] = [
     },
   },
   {
-    id: "gilded-heron",
-    slug: "gilded-heron",
-    title: "Gilded Heron",
-    year: 2025,
+    id: "the-treasurer",
+    slug: "the-treasurer",
+    title: "The Treasurer",
+    year: 2026,
+    conceptLine: "Everything it ever took, worn at once",
     orientation: "portrait",
-    style: "photorealistic",
+    style: "painterly",
     collectionId: "noble-creatures",
-    medium: "Digital artwork",
+    medium: "Digital painting",
+    processNote:
+      "The ground was scraped back to bare gold in places so the bird stands against a wall that is already treasure — the black of the feathers is the only cool colour left in the picture.",
     descriptionShort:
-      "A heron cast in white and gold, standing perfectly still on a marble plinth.",
+      "A raven wearing its whole hoard — gold filigree and set stones laid over black iridescent feathers.",
     descriptionLong:
-      "Gilded Heron trades oil and gemstone for polished metal — the same noble bird, reimagined as a sculptural object in a sunlit room. Stillness as a form of authority.",
-    status: "available",
+      "The Treasurer takes the corvid's logic entirely seriously: everything it ever carried off, worn at once. Amethyst at the brow, citrine and peridot down the wing, a gilded plinth to stand on — and underneath all of it a plain black bird that has clearly won.",
+    relatedArtworkIds: ["regalia", "the-regent"],
+    status: "inquiry_only",
     featured: false,
     galleryOrder: 11,
     displaySize: "tall",
-    tone: ["#cfc3ad", "#e9e2d2"],
+    subjectTags: ["raven", "bird", "jewellery"],
+    colorTags: ["black", "gold", "amethyst"],
+    moodTags: ["opulent", "regal", "still"],
+    tone: ["#2a2418", "#c2a45a"],
     image: {
-      src: "/artworks/gilded-heron.jpg",
-      width: 960,
-      height: 1200,
-      alt: "A photorealistic white-and-gold heron sculpture standing on a marble plinth in a bright modern interior, with a large abstract painting behind it.",
+      src: "/artworks/the-treasurer.jpg",
+      width: 1054,
+      height: 1492,
+      alt: "A painterly portrait of a black raven in profile, its head, breast and wing encrusted with gold filigree and coloured gemstones — amethyst, citrine and peridot — perched on an ornate gilded pedestal against a mottled gold and verdigris background.",
     },
   },
   {
@@ -872,6 +879,38 @@ export const artworks: Artwork[] = [
       width: 1144,
       height: 1375,
       alt: "A photorealistic still life of a large oyster shell standing upright and open, its rough grey outer crust curving around a lustrous mother-of-pearl interior that cradles a single oversized baroque pearl, against a mottled grey and bronze wall.",
+    },
+  },
+  {
+    // Re-filed from Noble Creatures: the bird here is an object in a room, so
+    // it belongs with the interiors rather than with the painted creatures.
+    id: "gilded-heron",
+    slug: "gilded-heron",
+    title: "Gilded Heron",
+    year: 2025,
+    conceptLine: "A household that keeps a bird which will never move",
+    orientation: "portrait",
+    style: "photorealistic",
+    collectionId: "imagined-interiors",
+    medium: "Digital artwork",
+    descriptionShort:
+      "A heron cast in white and gold, standing perfectly still on a marble plinth in a bright, near-empty room.",
+    descriptionLong:
+      "Gilded Heron is a room with a single occupant, and the occupant is an object. Polished metal on marble, a large canvas behind it, nothing else asked to happen — a house that keeps a bird which will never move, and treats that as entirely ordinary.",
+    relatedArtworkIds: ["opal-tower", "the-patriarch"],
+    status: "available",
+    featured: false,
+    // Re-filed rather than newly added, so it keeps its place in the sequence
+    // (just after The Appointment) instead of claiming the newest slot — which
+    // would make it this collection's cover and pull it out of the grid.
+    galleryOrder: 10.5,
+    displaySize: "tall",
+    tone: ["#cfc3ad", "#e9e2d2"],
+    image: {
+      src: "/artworks/gilded-heron.jpg",
+      width: 960,
+      height: 1200,
+      alt: "A photorealistic white-and-gold heron sculpture standing on a marble plinth in a bright modern interior, with a large abstract painting behind it.",
     },
   },
 ];
