@@ -63,9 +63,13 @@ export function MobileMenu({
   return (
     <div
       ref={panelRef}
+      id="site-menu"
       role="dialog"
       aria-modal="true"
       aria-label="Menu"
+      // Closed: kept out of the accessibility tree and unfocusable (§28).
+      aria-hidden={!open}
+      {...(!open ? { inert: "" as unknown as boolean } : {})}
       className={`fixed inset-0 z-[60] bg-[var(--color-dark-section)] text-[var(--color-dark-text)] transition-opacity duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
         open
           ? "pointer-events-auto opacity-100"

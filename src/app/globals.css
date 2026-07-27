@@ -17,7 +17,7 @@
   --color-accent: #8b7252; /* muted bronze — used sparingly */
 
   /* Type ------------------------------------------------------------------ */
-  --font-serif: var(--font-instrument-serif), Georgia, "Times New Roman", serif;
+  --font-serif: var(--font-serif-display), Georgia, "Times New Roman", serif;
   --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
 
   /* Layout ---------------------------------------------------------------- */
@@ -56,39 +56,43 @@ body {
 }
 
 /* Typographic scale (§4) --------------------------------------------------- */
+/* Cormorant Garamond is wider and lighter than the previous face: it needs a
+   touch more size, gentler negative tracking and weight 500 at display sizes
+   to hold the same presence without feeling vertically compressed. */
 .type-display-xl {
   font-family: var(--font-serif);
-  font-size: clamp(58px, 7.4vw, 146px);
-  line-height: 0.9;
-  letter-spacing: -0.04em;
-  font-weight: 400;
+  font-size: clamp(60px, 7.8vw, 152px);
+  line-height: 0.97;
+  letter-spacing: -0.022em;
+  font-weight: 500;
 }
 .type-display {
   font-family: var(--font-serif);
-  font-size: clamp(44px, 5.2vw, 100px);
-  line-height: 0.98;
-  letter-spacing: -0.028em;
-  font-weight: 400;
+  font-size: clamp(46px, 5.4vw, 104px);
+  line-height: 1.02;
+  letter-spacing: -0.018em;
+  font-weight: 500;
 }
 .type-h1 {
   font-family: var(--font-serif);
-  font-size: clamp(40px, 4vw, 72px);
-  line-height: 1;
-  letter-spacing: -0.02em;
-  font-weight: 400;
+  font-size: clamp(42px, 4.2vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.014em;
+  font-weight: 500;
 }
 .type-h2 {
   font-family: var(--font-serif);
-  font-size: clamp(30px, 3vw, 56px);
-  line-height: 1.05;
-  letter-spacing: -0.015em;
-  font-weight: 400;
+  font-size: clamp(32px, 3.1vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  font-weight: 500;
 }
 .type-h3 {
   font-family: var(--font-serif);
-  font-size: clamp(24px, 2.4vw, 36px);
-  line-height: 1.1;
-  font-weight: 400;
+  font-size: clamp(25px, 2.5vw, 38px);
+  line-height: 1.18;
+  letter-spacing: -0.006em;
+  font-weight: 500;
 }
 .type-body {
   font-size: clamp(16px, 1.1vw, 18px);

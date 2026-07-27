@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getGalleryArtworks } from "@/content/artworks";
 import { SectionLabel } from "@/components/typography/SectionLabel";
+import { Suspense } from "react";
 import { GalleryView } from "@/components/gallery/GalleryView";
 
 export const metadata: Metadata = {
@@ -25,7 +26,16 @@ export default function GalleryPage() {
         </p>
       </div>
 
-      <GalleryView artworks={artworks} />
+      {/* GalleryView reads filter state from the URL, so it needs a boundary. */}
+      <Suspense
+        fallback={
+          <div className="py-24 type-micro text-[var(--color-text-secondary)]">
+            Loading works…
+          </div>
+        }
+      >
+        <GalleryView artworks={artworks} />
+      </Suspense>
     </section>
   );
 }

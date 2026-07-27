@@ -1,8 +1,8 @@
 "use client";
 
-import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Link } from "next-view-transitions";
+import { useEffect, useRef, useState } from "react";
 import { MobileMenu } from "./MobileMenu";
 
 const NAV = [
@@ -12,32 +12,65 @@ const NAV = [
   { label: "Contact", href: "/contact" },
 ];
 
+/** Scroll must move more than this before the header hides or shows, so small
+ *  jitter (or iOS rubber-banding) never flickers it (§10). */
+const JITTER = 8;
+/** Above this point the header is always visible. */
+const TOP_ZONE = 120;
+
 export function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
 
-  // Milky-on-scroll + hide-on-down / show-on-up (§7).
   useEffect(() => {
+    // While the menu is open the header must not react to scroll at all.
+    if (menuOpen) return;
+
     let last = window.scrollY;
-    const onScroll = () => {
-      const y = window.scrollY;
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      const y = Math.max(0, window.scrollY);
       setScrolled(y > 24);
-      if (!menuOpen) {
-        setHidden(y > last && y > 200);
-      }
+
+      const delta = y - last;
+      if (Math.abs(delta) < JITTER) return;
+      // Near the top the header is always shown.
+      setHidden(y > TOP_ZONE && delta > 0);
       last = y;
     };
+
+    const onScroll = () => {
+      if (!frame) frame = window.requestAnimationFrame(update);
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) window.cancelAnimationFrame(frame);
+    };
   }, [menuOpen]);
+
+  // Any navigation reveals the header again.
+  useEffect(() => {
+    setHidden(false);
+  }, [pathname]);
+
+  const closeMenu = () => {
+    setMenuOpen(false);
+    // Focus returns to the control that opened the menu (§28).
+    menuButtonRef.current?.focus();
+  };
 
   return (
     <>
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-[transform,background-color,backdrop-filter] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-          hidden ? "-translate-y-full" : "translate-y-0"
+          hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"
         } ${
           scrolled
             ? "bg-[var(--color-background)]/80 backdrop-blur-[12px]"
@@ -47,9 +80,10 @@ export function Header() {
         <div className="container-gallery flex h-[68px] items-center justify-between md:h-[92px]">
           <Link
             href="/"
-            className="font-[family-name:var(--font-serif)] text-[22px] leading-none tracking-tight md:text-[26px]"
+            aria-label="Duke and Lume — home"
+            className="font-[family-name:var(--font-serif)] text-[23px] font-medium leading-none tracking-[-0.015em] md:text-[27px]"
           >
-            Duke&amp;Lume
+            Duke<span className="text-[var(--color-accent)]">&amp;</span>Lume
           </Link>
 
           <nav className="hidden items-center gap-9 md:flex" aria-label="Primary">
@@ -60,10 +94,9 @@ export function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
+                  aria-current={active ? "page" : undefined}
                   className={`type-small tracking-wide transition-opacity duration-300 ${
-                    active
-                      ? "opacity-100"
-                      : "opacity-60 hover:opacity-100"
+                    active ? "opacity-100" : "opacity-60 hover:opacity-100"
                   }`}
                 >
                   <span className="relative">
@@ -77,11 +110,16 @@ export function Header() {
             })}
           </nav>
 
+          {/* Menu button — mobile only; on desktop the nav above is the menu, so
+              a hamburger would just duplicate it (§9). */}
           <button
+            ref={menuButtonRef}
             type="button"
             onClick={() => setMenuOpen(true)}
             aria-label="Open menu"
-            className="flex h-11 w-11 items-center justify-center md:-mr-2"
+            aria-expanded={menuOpen}
+            aria-controls="site-menu"
+            className="flex h-11 w-11 items-center justify-center md:hidden"
           >
             <span className="flex flex-col gap-[5px]">
               <span className="block h-px w-6 bg-[var(--color-text-primary)]" />
@@ -91,11 +129,7 @@ export function Header() {
         </div>
       </header>
 
-      <MobileMenu
-        open={menuOpen}
-        onClose={() => setMenuOpen(false)}
-        nav={NAV}
-      />
+      <MobileMenu open={menuOpen} onClose={closeMenu} nav={NAV} />
     </>
   );
 }
