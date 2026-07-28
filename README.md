@@ -41,6 +41,7 @@ PW_CHROMIUM_PATH=/path/to/chrome npm run test:e2e
 | `RESEND_API_KEY` | Enables contact-form delivery. Without it the form says so plainly and points to the email address. |
 | `INQUIRY_FROM_EMAIL` | Verified sender address for those emails. |
 | `INQUIRY_TO_EMAIL` | Where inquiries land (defaults to the site contact address). |
+| `GALLERY_CONNECT_VERIFICATION_TOKEN` | Token issued by a platform this gallery is listed on; echoed in the manifest as proof of domain control. Omitted entirely when unset. |
 
 Nothing else is required — the site builds and runs without any secrets.
 
@@ -74,6 +75,20 @@ renders a composed tonal placeholder (using the entry's `tone`) so the layout ne
 
 The demo works currently in the repo reconstruct the reference mockup so the design can be reviewed
 live. Replace them with Duke&Lume's real works.
+
+## Gallery Connect
+
+The catalogue is also published as a machine-readable manifest at
+**`/.well-known/gallery-connect.json`** — one document carrying every work, its images,
+collections, availability and terms, so another platform can list this gallery without
+scraping the pages or asking anyone to re-enter it.
+
+It is generated from the same `src/content/` files the site renders, so it cannot drift
+out of date. Format spec and the syncing contract: **[docs/gallery-connect.md](docs/gallery-connect.md)**.
+
+```bash
+curl -s https://dukelume.com/.well-known/gallery-connect.json | head -40
+```
 
 ## Structure
 

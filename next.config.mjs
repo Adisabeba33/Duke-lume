@@ -19,6 +19,17 @@ const nextConfig = {
     // build stamp out of the public production footer.
     NEXT_PUBLIC_VERCEL_ENV: process.env.VERCEL_ENV ?? "development",
   },
+  // The Gallery Connect manifest has to live at a dot-prefixed path, and Next's
+  // file-system router skips dot-prefixed directories under app/. So the route
+  // handler sits at a plain path and is served from the well-known address.
+  async rewrites() {
+    return [
+      {
+        source: "/.well-known/gallery-connect.json",
+        destination: "/api/gallery-connect",
+      },
+    ];
+  },
   // Canonical host is the bare domain. Anything else that can serve this app —
   // the Vercel preview host, or www — is redirected so links and SEO signals
   // consolidate on one origin (§24). Only applies in production.
