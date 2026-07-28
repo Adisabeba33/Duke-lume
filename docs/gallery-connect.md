@@ -154,6 +154,17 @@ second artefact to keep alive.
 On this site the token comes from `GALLERY_CONNECT_VERIFICATION_TOKEN`, and the
 block is omitted entirely when the variable is unset.
 
+## Serving it from somewhere else
+
+A consumer is right to refuse a manifest whose works live on a different domain
+— that is how one site would claim another's catalogue. Which means a preview
+deployment publishing `dukelume.com` URLs would be rejected, and rightly so: it
+is not that site.
+
+`GALLERY_CONNECT_BASE_URL` overrides the origin every URL in the document is
+built from, so a preview describes the preview. Unset, it is the canonical
+`https://dukelume.com`.
+
 ## Deliberate non-decisions in 0.1
 
 - **No autodiscovery `<link>` tag.** The well-known path is fixed; a second

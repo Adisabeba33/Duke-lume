@@ -22,8 +22,16 @@ import {
   type GcTags,
 } from "./format";
 
-// Same canonical origin the sitemap and JSON-LD use.
-const BASE = "https://dukelume.com";
+/**
+ * Same canonical origin the sitemap and JSON-LD use.
+ *
+ * Overridable because a manifest served from somewhere else must say so. A
+ * preview deployment that published dukelume.com URLs would be handing a
+ * consumer the production catalogue while claiming to be the preview — and a
+ * consumer is right to refuse a manifest whose works live on another domain,
+ * which is exactly what it would look like.
+ */
+const BASE = process.env.GALLERY_CONNECT_BASE_URL ?? "https://dukelume.com";
 
 const absolute = (path: string) => (path.startsWith("http") ? path : `${BASE}${path}`);
 

@@ -42,6 +42,7 @@ PW_CHROMIUM_PATH=/path/to/chrome npm run test:e2e
 | `INQUIRY_FROM_EMAIL` | Verified sender address for those emails. |
 | `INQUIRY_TO_EMAIL` | Where inquiries land (defaults to the site contact address). |
 | `GALLERY_CONNECT_VERIFICATION_TOKEN` | Token issued by a platform this gallery is listed on; echoed in the manifest as proof of domain control. Omitted entirely when unset. |
+| `GALLERY_CONNECT_BASE_URL` | Origin the manifest declares its works under. Defaults to the canonical `https://dukelume.com`; set it on a preview deployment so the manifest describes the site actually serving it. |
 
 Nothing else is required — the site builds and runs without any secrets.
 
