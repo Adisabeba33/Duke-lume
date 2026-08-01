@@ -1128,6 +1128,39 @@ export const artworks: Artwork[] = [
       alt: "A photorealistic close-up of a pink-and-cream bud whose bracts have parted around a faceted transparent crystal filled with a field of green and gold inclusions.",
     },
   },
+  {
+    id: "the-crossing",
+    slug: "the-crossing",
+    title: "The Crossing",
+    year: 2026,
+    conceptLine: "The gate was never the difficult part",
+    orientation: "portrait",
+    style: "painterly",
+    collectionId: "allegories",
+    medium: "Digital painting",
+    processNote:
+      "Laid in as slabs of grey and black with gold worked into the joints, so the only warm light in the picture is the light coming through the arch.",
+    descriptionShort:
+      "A colossal gate standing open over still water, and one figure who has stopped in front of it.",
+    descriptionLong:
+      "The Crossing sets its argument out plainly. A gate the size of a cliff, already open. A path of light laid across the water. A single figure halted on the near side, with nothing at all barring the way. The whole weight of the picture rests on the pause.",
+    relatedArtworkIds: ["the-weighing", "porcelain-requiem"],
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
+    featured: false,
+    galleryOrder: 39,
+    displaySize: "tall",
+    subjectTags: ["gate", "figure", "water"],
+    colorTags: ["grey", "gold", "black"],
+    moodTags: ["solemn", "vast", "still"],
+    tone: ["#2e3134", "#c9a45a"],
+    image: {
+      src: "/artworks/the-crossing.jpg",
+      width: 1122,
+      height: 1402,
+      alt: "A painterly scene of a colossal stone gateway standing open above still water in a rocky gorge, a pale sun low behind cloud within the archway, gold worked into the masonry, a windswept tree to the right and a single cloaked figure standing on the wet flagstones before it.",
+    },
+  },
 ];
 
 export function getArtwork(id: string): Artwork | undefined {
