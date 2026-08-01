@@ -1293,6 +1293,39 @@ export const artworks: Artwork[] = [
       alt: "A modern abstract painting of a woman's dark profile with her chin lifted against a large gold disc, surrounded by flat blocks of teal, cream, magenta, pink and burnt orange with paint drips, scraped texture, circles and fine ruled gold lines.",
     },
   },
+  {
+    id: "the-mend",
+    slug: "the-mend",
+    title: "The Mend",
+    year: 2026,
+    conceptLine: "The vessel broke; the flowers did not notice",
+    orientation: "portrait",
+    style: "painterly",
+    collectionId: "ornamental-nature",
+    medium: "Digital painting",
+    processNote:
+      "Worked entirely with the knife. The background is laid in as blocks and each bloom is built from single loaded strokes, so the paint stays as thick at the edge of a petal as it is in the middle.",
+    descriptionShort:
+      "Blooms in plum, cream and gold rising out of a broken white vessel seamed with gold.",
+    descriptionLong:
+      "The Mend rests on a small contradiction. The vessel is in pieces, held at the breaks by gold, and the flowers standing in it are the healthiest thing in the picture. A dried lotus pod leans out on a black stem, one leaf has gone to gold outright, and three petals have already come down on the table.",
+    relatedArtworkIds: ["gemstone-bloom", "the-herbarium"],
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
+    featured: false,
+    galleryOrder: 44,
+    displaySize: "tall",
+    subjectTags: ["flowers", "vessel", "still life"],
+    colorTags: ["blush", "gold", "plum"],
+    moodTags: ["opulent", "tender", "still"],
+    tone: ["#c98b8b", "#d9b25a"],
+    image: {
+      src: "/artworks/the-mend.jpg",
+      width: 1023,
+      height: 1537,
+      alt: "A heavily impasto palette-knife still life of peony-like flowers in plum, cream, blush and gold rising from a broken white vessel seamed with gold, with a dried lotus seed pod on a black stem, one gilded leaf and fallen petals on the table, against a blocked pink, cream and black background.",
+    },
+  },
 ];
 
 export function getArtwork(id: string): Artwork | undefined {
