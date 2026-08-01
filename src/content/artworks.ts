@@ -1227,6 +1227,39 @@ export const artworks: Artwork[] = [
       alt: "A painterly dark interior with a large circular moon window opening on misty mountains and water, plum blossom branches reaching across it from a dark jar, a low table set with a bowl and cup, a hanging lamp with a lit bulb, a red calligraphic scroll on the right-hand wall and a cushion on the polished floor.",
     },
   },
+  {
+    id: "the-long-watch",
+    slug: "the-long-watch",
+    title: "The Long Watch",
+    year: 2026,
+    conceptLine: "Armour that stood still long enough to become a garden",
+    orientation: "portrait",
+    style: "photorealistic",
+    collectionId: "personae",
+    medium: "Digital artwork",
+    processNote:
+      "Metal, moss and skin were kept under one soft light so none of them reads as an effect; the blossom is held to a single pale pink so the armour never tips into decoration.",
+    descriptionShort:
+      "A young woman in mossed brass armour, eyes closed, small blossoms opening along the seams.",
+    descriptionLong:
+      "The Long Watch is a portrait of someone who has not moved in a very long time. The verdigris plate and brass rings still hold their shape, but lichen has taken the joints and a hedge of small flowers has come into bloom across the shoulder and helm. A thin gold circle stands behind her head — half halo, half surveyor's mark — and her eyes stay closed.",
+    relatedArtworkIds: ["the-envoy", "the-empress"],
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
+    featured: false,
+    galleryOrder: 42,
+    displaySize: "tall",
+    subjectTags: ["portrait", "armour", "flowers"],
+    colorTags: ["verdigris", "brass", "blush"],
+    moodTags: ["quiet", "solemn", "still"],
+    tone: ["#3c4038", "#c9a45a"],
+    image: {
+      src: "/artworks/the-long-watch.jpg",
+      width: 1086,
+      height: 1448,
+      alt: "A photorealistic profile portrait of a young woman with closed eyes wearing a verdigris and brass helmet and high collar overgrown with moss, lichen and small pale pink blossoms, a crystal drop earring on a fine chain, and a thin gold circle drawn on the dark wall behind her head.",
+    },
+  },
 ];
 
 export function getArtwork(id: string): Artwork | undefined {
