@@ -1194,6 +1194,39 @@ export const artworks: Artwork[] = [
       alt: "A painterly nocturne of a small house with one lit window standing on a tall rock spire above calm water, a long stair cut up the rock, a wind-bent tree beside the house, a crescent moon above and a wide gold halo behind, with faint Russian marginal notes and registration marks printed into the surface.",
     },
   },
+  {
+    id: "the-moon-window",
+    slug: "the-moon-window",
+    title: "The Moon Window",
+    year: 2026,
+    conceptLine: "The room was arranged around it, and then everyone left",
+    orientation: "portrait",
+    style: "painterly",
+    collectionId: "imagined-interiors",
+    medium: "Digital painting",
+    processNote:
+      "Every surface was built in short overlapping strokes so the walls read as plaster mended many times over; the view through the window is the only part of the picture left smooth.",
+    descriptionShort:
+      "A dark room built around a circular window, with plum branches, a low table and one lit bulb.",
+    descriptionLong:
+      "The Moon Window gives a room a single opening and lets it carry everything: mountains, water and a white sky held inside a perfect circle, with plum blossom reaching across it from a jar on the table. The rest — the bowl, the cup, the cushion set down on the floor, the bulb burning under its dark shade — is arranged as though someone were about to sit, and no one does.",
+    relatedArtworkIds: ["opal-tower", "the-patriarch"],
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
+    featured: false,
+    galleryOrder: 41,
+    displaySize: "tall",
+    subjectTags: ["interior", "window", "blossom"],
+    colorTags: ["grey", "gold", "red"],
+    moodTags: ["quiet", "contemplative", "still"],
+    tone: ["#2a2620", "#b9a173"],
+    image: {
+      src: "/artworks/the-moon-window.jpg",
+      width: 1122,
+      height: 1402,
+      alt: "A painterly dark interior with a large circular moon window opening on misty mountains and water, plum blossom branches reaching across it from a dark jar, a low table set with a bowl and cup, a hanging lamp with a lit bulb, a red calligraphic scroll on the right-hand wall and a cushion on the polished floor.",
+    },
+  },
 ];
 
 export function getArtwork(id: string): Artwork | undefined {
