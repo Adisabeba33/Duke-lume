@@ -1260,6 +1260,39 @@ export const artworks: Artwork[] = [
       alt: "A photorealistic profile portrait of a young woman with closed eyes wearing a verdigris and brass helmet and high collar overgrown with moss, lichen and small pale pink blossoms, a crystal drop earring on a fine chain, and a thin gold circle drawn on the dark wall behind her head.",
     },
   },
+  {
+    id: "chorus",
+    slug: "chorus",
+    title: "Chorus",
+    year: 2026,
+    conceptLine: "One face, and the whole room answering",
+    orientation: "landscape",
+    style: "modern",
+    collectionId: "personae",
+    medium: "Digital painting",
+    processNote:
+      "Blocked in as flat fields first, then broken with drips, scraped edges and gold leaf so the geometry never settles into clean vector work.",
+    descriptionShort:
+      "A profile in black and gold held inside a field of colour blocks, drips and arcs.",
+    descriptionLong:
+      "Chorus is the loudest voice in Personae and the one with the least detail. The face is a single dark profile against a gold disc; everything else — teal, cream, magenta, a column of burnt orange, a gold line ruled straight across the middle — is flat blocks answering it. No features are drawn at all, and the likeness still holds the picture together.",
+    relatedArtworkIds: ["homeland", "grande-dame"],
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
+    featured: false,
+    galleryOrder: 43,
+    displaySize: "wide",
+    subjectTags: ["portrait", "profile", "geometry"],
+    colorTags: ["teal", "magenta", "gold"],
+    moodTags: ["bold", "luminous", "graphic"],
+    tone: ["#1d6f7a", "#e0447a"],
+    image: {
+      src: "/artworks/chorus.jpg",
+      width: 1402,
+      height: 1122,
+      alt: "A modern abstract painting of a woman's dark profile with her chin lifted against a large gold disc, surrounded by flat blocks of teal, cream, magenta, pink and burnt orange with paint drips, scraped texture, circles and fine ruled gold lines.",
+    },
+  },
 ];
 
 export function getArtwork(id: string): Artwork | undefined {
