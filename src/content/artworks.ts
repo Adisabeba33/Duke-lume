@@ -1161,6 +1161,39 @@ export const artworks: Artwork[] = [
       alt: "A painterly scene of a colossal stone gateway standing open above still water in a rocky gorge, a pale sun low behind cloud within the archway, gold worked into the masonry, a windswept tree to the right and a single cloaked figure standing on the wet flagstones before it.",
     },
   },
+  {
+    id: "the-hermitage",
+    slug: "the-hermitage",
+    title: "The Hermitage",
+    year: 2026,
+    conceptLine: "Some houses can only be built alone",
+    orientation: "portrait",
+    style: "painterly",
+    collectionId: "allegories",
+    medium: "Digital painting",
+    processNote:
+      "Held to two values almost throughout, so the lit window and the halo behind the rock carry all the light. The marginal notes, circles and registration marks are printed into the surface rather than laid over it.",
+    descriptionShort:
+      "A single house on a rock spire above still water, reached by a long stair, under a crescent moon.",
+    descriptionLong:
+      "The Hermitage makes its case for solitude without hedging: one house, one tree, one stair cut up a rock that stands alone in a flat sea, a gold halo behind it and a crescent overhead. The work carries its own notes in the margin — silence is also a form of strength; sometimes solitude builds houses you could not build together; here time is in no hurry to remind you of itself — set into the surface like annotations on a plate.",
+    relatedArtworkIds: ["the-crossing", "the-long-field"],
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
+    featured: false,
+    galleryOrder: 40,
+    displaySize: "tall",
+    subjectTags: ["house", "island", "moon"],
+    colorTags: ["gold", "black", "grey"],
+    moodTags: ["solitary", "quiet", "vast"],
+    tone: ["#2b2620", "#c9a45a"],
+    image: {
+      src: "/artworks/the-hermitage.jpg",
+      width: 1122,
+      height: 1402,
+      alt: "A painterly nocturne of a small house with one lit window standing on a tall rock spire above calm water, a long stair cut up the rock, a wind-bent tree beside the house, a crescent moon above and a wide gold halo behind, with faint Russian marginal notes and registration marks printed into the surface.",
+    },
+  },
 ];
 
 export function getArtwork(id: string): Artwork | undefined {
