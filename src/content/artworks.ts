@@ -1359,6 +1359,39 @@ export const artworks: Artwork[] = [
       alt: "An impasto palette-knife still life of a large round cream vessel holding a bare branch with a few white blossoms, beside a black bowl lined with gold, standing on a pale ledge against a wall of blocked black, cream, gold and rust panels.",
     },
   },
+  {
+    id: "heartwood",
+    slug: "heartwood",
+    title: "Heartwood",
+    year: 2026,
+    conceptLine: "A vessel grown, not made",
+    orientation: "portrait",
+    style: "photorealistic",
+    collectionId: "reliquaries",
+    medium: "Digital artwork",
+    processNote:
+      "The gold ground was laid and cracked before anything was set against it, so the disc reads as a wall that has been gilded and left, not as light behind the object.",
+    descriptionShort:
+      "A blossoming bough curled around a smoky quartz point, raised on gold-veined marble.",
+    descriptionLong:
+      "Heartwood is The Orb's opposite number. Where that reliquary was built out of brass to hold its stone, this one grew around it: an old bough has closed on a quartz point, put out plum blossom along the far branches, and set the whole arrangement on marble cracked and refilled with gold. The crystal is the only part of the picture that lets light through.",
+    relatedArtworkIds: ["the-orb", "chrysalis"],
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
+    featured: false,
+    galleryOrder: 46,
+    displaySize: "tall",
+    subjectTags: ["crystal", "wood", "blossom"],
+    colorTags: ["gold", "smoke", "plum"],
+    moodTags: ["still", "precious", "reverent"],
+    tone: ["#3a3226", "#c9a45a"],
+    image: {
+      src: "/artworks/heartwood.jpg",
+      width: 1023,
+      height: 1537,
+      alt: "A photorealistic still life of a gnarled dark bough curled around a large smoky quartz crystal point and flowering with deep red plum blossom, standing on a cracked marble plinth veined with gold, against a gilded disc on a weathered plaster wall.",
+    },
+  },
 ];
 
 export function getArtwork(id: string): Artwork | undefined {
