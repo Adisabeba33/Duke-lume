@@ -388,7 +388,7 @@ export const artworks: Artwork[] = [
     year: 2024,
     orientation: "landscape",
     style: "photorealistic",
-    collectionId: "places-and-memory",
+    // Retired with Places & Memory, which no longer exists as a collection.
     medium: "Digital artwork",
     descriptionShort:
       "A dog waits in the doorway of a weathered house, half in shadow.",
@@ -414,7 +414,7 @@ export const artworks: Artwork[] = [
     year: 2024,
     orientation: "landscape",
     style: "photorealistic",
-    collectionId: "places-and-memory",
+    // Retired with Places & Memory, which no longer exists as a collection.
     medium: "Digital artwork",
     descriptionShort:
       "A pale-blue camper resting in a sunlit southern-Italian lane.",
@@ -870,7 +870,7 @@ export const artworks: Artwork[] = [
     conceptLine: "One tree, keeping the whole plain",
     orientation: "portrait",
     style: "painterly",
-    collectionId: "places-and-memory",
+    collectionId: "allegories",
     medium: "Digital painting",
     processNote:
       "Sky and field were scumbled in thin, dry layers until the weave of the ground showed through; the tree is the only part painted wet, so it holds the single clear edge in the picture.",
@@ -1301,7 +1301,7 @@ export const artworks: Artwork[] = [
     conceptLine: "The vessel broke; the flowers did not notice",
     orientation: "portrait",
     style: "painterly",
-    collectionId: "ornamental-nature",
+    collectionId: "imagined-interiors",
     medium: "Digital painting",
     processNote:
       "Worked entirely with the knife. The background is laid in as blocks and each bloom is built from single loaded strokes, so the paint stays as thick at the edge of a petal as it is in the middle.",
@@ -1309,7 +1309,7 @@ export const artworks: Artwork[] = [
       "Blooms in plum, cream and gold rising out of a broken white vessel seamed with gold.",
     descriptionLong:
       "The Mend rests on a small contradiction. The vessel is in pieces, held at the breaks by gold, and the flowers standing in it are the healthiest thing in the picture. A dried lotus pod leans out on a black stem, one leaf has gone to gold outright, and three petals have already come down on the table.",
-    relatedArtworkIds: ["gemstone-bloom", "the-herbarium"],
+    relatedArtworkIds: ["gold-lining", "the-moon-window"],
     edition: DIGITAL_EDITION,
     status: "inquiry_only",
     featured: false,
@@ -1334,7 +1334,7 @@ export const artworks: Artwork[] = [
     conceptLine: "The bowl keeps its gold on the inside",
     orientation: "portrait",
     style: "painterly",
-    collectionId: "ornamental-nature",
+    collectionId: "imagined-interiors",
     medium: "Digital painting",
     processNote:
       "The wall was built as overlapping panels of knife-work and left cracked throughout, so nothing in the picture holds a clean edge except the gold inside the bowl.",
@@ -1342,7 +1342,7 @@ export const artworks: Artwork[] = [
       "A blossom branch in a round cream vessel, beside a black bowl gilded on the inside.",
     descriptionLong:
       "Gold Lining sets three plain things against a wall of blocks: a heavy round vessel, a bare branch carrying a handful of white blossoms, and a black bowl that keeps its gold where only someone standing over it would find it. Everything on show is chalk, ash and cracked plaster. The one rich surface in the picture is turned away.",
-    relatedArtworkIds: ["the-mend", "the-herbarium"],
+    relatedArtworkIds: ["the-mend", "the-moon-window"],
     edition: DIGITAL_EDITION,
     status: "inquiry_only",
     featured: false,

@@ -59,7 +59,7 @@ export const collections: Collection[] = [
     descriptionShort:
       "Rooms that never existed, furnished and left unoccupied.",
     descriptionLong:
-      "Imagined Interiors builds rooms nobody has walked into — a lamp left burning, a window opened onto a mountain, a framed tower of caged opals. Furnished with complete seriousness, and empty.",
+      "Imagined Interiors builds rooms nobody has walked into — a lamp left burning, a window opened onto a mountain, a table laid with flowers no one came to see. Furnished with complete seriousness, and empty.",
     displayOrder: 4,
   },
   {
@@ -77,24 +77,10 @@ export const collections: Collection[] = [
     displayOrder: 5,
   },
   {
-    id: "places-and-memory",
-    slug: "places-and-memory",
-    title: "Places & Memory",
-    number: "06",
-    heroLayout: "standard",
-    featuredQuote:
-      "More about what a place leaves behind than the place.",
-    descriptionShort:
-      "Open ground and a far horizon — a place remembered more than seen.",
-    descriptionLong:
-      "Places & Memory steps outside the studio: open country, a low horizon and light that is in no hurry. More about the feeling a place leaves behind than the place itself.",
-    displayOrder: 6,
-  },
-  {
     id: "reliquaries",
     slug: "reliquaries",
     title: "Reliquaries",
-    number: "07",
+    number: "06",
     heroLayout: "diptych",
     featuredQuote:
       "A vessel is an argument for keeping something.",
@@ -102,22 +88,22 @@ export const collections: Collection[] = [
       "Husks, pods and petals that cradle a gemstone heart — vessels made to keep something precious.",
     descriptionLong:
       "Reliquaries follows a single idea across many works: a plant form opened just enough to reveal the treasure it protects. Amber caught in a spent grain, turquoise wrapped in gauze, crystal blooming from stone — each is a small shrine to the act of keeping.",
-    displayOrder: 7,
+    displayOrder: 6,
     featured: true,
   },
   {
     id: "allegories",
     slug: "allegories",
     title: "Allegories",
-    number: "08",
+    number: "07",
     heroLayout: "typographic",
     featuredQuote:
       "Weight against lightness; permanence against passing.",
     descriptionShort:
       "Objects arranged to carry an argument — old symbols painted plainly.",
     descriptionLong:
-      "Allegories gathers the works that mean something beyond themselves: a balance, a feather, a stone. Each is a small proposition set out in paint — weight against lightness, permanence against passing — left for the viewer to settle.",
-    displayOrder: 8,
+      "Allegories gathers the works that mean something beyond themselves: a balance, a gate standing open, one tree holding a whole plain. Each is a small proposition set out in paint — weight against lightness, permanence against passing — left for the viewer to settle.",
+    displayOrder: 7,
   },
 ];
 
