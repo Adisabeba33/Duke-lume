@@ -8,6 +8,7 @@ import {
   getFeaturedArtworks,
   getGalleryArtworks,
   getRelatedArtworks,
+  isPublished,
 } from "../src/content/artworks";
 import { collections, getCollection, getOrderedCollections } from "../src/content/collections";
 import { BLUR } from "../src/content/blur";
@@ -60,6 +61,27 @@ describe("lookup helpers", () => {
   it("excludes hidden and draft works from the gallery", () => {
     for (const a of getGalleryArtworks()) {
       expect(["hidden", "draft"]).not.toContain(a.status);
+    }
+  });
+
+  it("keeps retired works out of every public listing", () => {
+    const retired = artworks.filter((a) => !isPublished(a));
+    expect(retired.length).toBeGreaterThan(0);
+
+    for (const r of retired) {
+      // not in the gallery, not on its collection page, not a homepage feature
+      expect(getGalleryArtworks()).not.toContainEqual(r);
+      if (r.collectionId) {
+        expect(getArtworksByCollection(r.collectionId).map((a) => a.slug)).not.toContain(r.slug);
+      }
+      expect(getFeaturedArtworks().map((a) => a.slug)).not.toContain(r.slug);
+    }
+
+    // and never surfaced as a companion, including where a curator named it
+    for (const a of getGalleryArtworks()) {
+      for (const companion of getRelatedArtworks(a.slug, 3)) {
+        expect(isPublished(companion)).toBe(true);
+      }
     }
   });
 

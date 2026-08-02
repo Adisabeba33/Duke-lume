@@ -5,6 +5,7 @@ import {
   getArtwork,
   getArtworksByCollection,
   getCollectionCover,
+  getCollectionPeriod,
 } from "@/content/artworks";
 import { ArtworkImage } from "@/components/artwork/ArtworkImage";
 import { SectionLabel } from "@/components/typography/SectionLabel";
@@ -17,8 +18,8 @@ export const metadata: Metadata = {
   alternates: { canonical: "/collections" },
 };
 
-function period(c: { yearStart?: number; yearEnd?: number }) {
-  if (!c.yearStart) return null;
+function period(c: { id: string; yearStart?: number; yearEnd?: number }) {
+  if (!c.yearStart) return getCollectionPeriod(c.id) ?? null;
   if (c.yearEnd && c.yearEnd !== c.yearStart) return `${c.yearStart}–${c.yearEnd}`;
   return String(c.yearStart);
 }

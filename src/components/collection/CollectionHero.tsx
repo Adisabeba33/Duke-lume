@@ -1,10 +1,11 @@
 import Image from "next/image";
 import type { Artwork, Collection } from "@/content/types";
+import { getCollectionPeriod } from "@/content/artworks";
 import { ArtworkImage } from "@/components/artwork/ArtworkImage";
 import { Reveal } from "@/components/ui/Reveal";
 
 function period(c: Collection) {
-  if (!c.yearStart) return null;
+  if (!c.yearStart) return getCollectionPeriod(c.id) ?? null;
   if (c.yearEnd && c.yearEnd !== c.yearStart) return `${c.yearStart}–${c.yearEnd}`;
   return String(c.yearStart);
 }

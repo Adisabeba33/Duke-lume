@@ -90,7 +90,10 @@ export function GalleryView({ artworks }: { artworks: Artwork[] }) {
         label: "Year",
         options: years.map((y) => ({ value: String(y), label: String(y) })),
       },
-    ];
+      // A facet whose works all share one value filters nothing — offering
+      // "All / Portrait" only invites a pointless click, so it stays hidden
+      // until the catalogue actually varies along that axis.
+    ].filter((f) => f.options.length > 1);
   }, [artworks]);
 
   // Exhibition sequence is curator-controlled (§11): exhibitionPosition first,

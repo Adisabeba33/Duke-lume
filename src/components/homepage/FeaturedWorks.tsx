@@ -10,6 +10,10 @@ import { Reveal } from "@/components/ui/Reveal";
  * Curated selection — deliberately asymmetric, not a uniform grid (§8.2).
  * Left: four narrow verticals in a 2×2. Right: two wide horizontals stacked,
  * then whatever else is featured, smaller, in the space beneath them.
+ *
+ * With no wide work in the selection the right-hand column would be left
+ * holding only that small row, so the remaining works are shown larger there
+ * instead and the asymmetry survives.
  */
 export function FeaturedWorks() {
   const featured = site.featuredArtworkIds
@@ -69,12 +73,17 @@ export function FeaturedWorks() {
           ))}
 
           {rest.length > 0 && (
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+            <div
+              className={`grid grid-cols-2 gap-4 md:gap-6 ${
+                wides.length ? "md:grid-cols-3" : "md:grid-cols-2"
+              }`}
+            >
               {rest.map((a, i) => {
                 // Same rhythm as the verticals on the left: at 320px they pair
                 // up rather than shrink to thumbnails, and an odd last work
                 // takes the full width instead of sitting alone in a half.
                 const full = i === rest.length - 1 && rest.length % 2 === 1;
+                const desktop = wides.length ? "18vw" : "28vw";
                 return (
                   <Reveal
                     key={a.id}
@@ -85,8 +94,8 @@ export function FeaturedWorks() {
                       artwork={a}
                       sizes={
                         full
-                          ? "(max-width: 768px) 100vw, 18vw"
-                          : "(max-width: 768px) 50vw, 18vw"
+                          ? `(max-width: 768px) 100vw, ${desktop}`
+                          : `(max-width: 768px) 50vw, ${desktop}`
                       }
                     />
                   </Reveal>

@@ -49,7 +49,7 @@ export default function HomePage() {
       <HeroSection />
       <FeaturedWorks />
       <SoloWork artworkId="mother-lode" align="right" />
-      <FullBleedArtwork artworkId="the-connoisseurs" />
+      <FullBleedArtwork artworkId="the-crossing" />
       <VisionSection />
       <MuseumMoment artworkId="the-regent" />
       <QuoteSection />
