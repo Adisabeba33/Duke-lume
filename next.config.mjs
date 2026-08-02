@@ -23,9 +23,20 @@ const nextConfig = {
   // the Vercel preview host, or www — is redirected so links and SEO signals
   // consolidate on one origin (§24). Only applies in production.
   async redirects() {
-    if (process.env.VERCEL_ENV !== "production") return [];
+    // Places & Memory was dissolved into Allegories, where its one surviving
+    // work now hangs. Anyone holding the old link lands there rather than on a
+    // 404 — a retired collection should still lead somewhere.
+    const retiredCollections = [
+      {
+        source: "/collections/places-and-memory",
+        destination: "/collections/allegories",
+        permanent: true,
+      },
+    ];
+    if (process.env.VERCEL_ENV !== "production") return retiredCollections;
     const to = "https://dukelume.com/:path*";
     return [
+      ...retiredCollections,
       {
         source: "/:path*",
         has: [{ type: "host", value: "duke-lume.vercel.app" }],
