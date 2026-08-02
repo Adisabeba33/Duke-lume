@@ -12,10 +12,8 @@ export const site: SiteSettings = {
   heroArtworkId: "the-sovereign",
   featuredArtworkIds: [
     "porcelain-requiem",
-    "grande-dame",
     "blue-reliquary",
     "the-herald",
-    "the-appointment",
     "the-treasurer",
     "nacre",
     "the-long-field",

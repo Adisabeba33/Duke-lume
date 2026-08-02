@@ -11,8 +11,6 @@ export const collections: Collection[] = [
     heroLayout: "detail",
     featuredQuote:
       "Stone remembers longer than we do.",
-    yearStart: 2023,
-    yearEnd: 2025,
     descriptionShort:
       "Stone, crystal and metal studied as if they were living things.",
     descriptionLong:
@@ -28,8 +26,6 @@ export const collections: Collection[] = [
     heroLayout: "standard",
     featuredQuote:
       "Made to outlast the season it imitates.",
-    yearStart: 2023,
-    yearEnd: 2024,
     descriptionShort:
       "Growth, decay and organic form — the precious detail found in nature.",
     descriptionLong:
@@ -45,8 +41,6 @@ export const collections: Collection[] = [
     heroLayout: "dark",
     featuredQuote:
       "They do not perform. They preside.",
-    yearStart: 2024,
-    yearEnd: 2026,
     descriptionShort:
       "Portraits of imagined beings, crowned in gold and quiet authority.",
     descriptionLong:
@@ -61,13 +55,11 @@ export const collections: Collection[] = [
     number: "04",
     heroLayout: "fullscreen",
     featuredQuote:
-      "Every room here has been lived in by someone impossible.",
-    yearStart: 2023,
-    yearEnd: 2025,
+      "Furnished for someone who never arrives.",
     descriptionShort:
-      "Rooms that never existed, and the characters who quietly inhabit them.",
+      "Rooms that never existed, furnished and left unoccupied.",
     descriptionLong:
-      "Imagined Interiors builds rooms that never existed and fills them with characters who are not quite people. Deadpan luxury, painted with complete seriousness.",
+      "Imagined Interiors builds rooms nobody has walked into — a lamp left burning, a window opened onto a mountain, a framed tower of caged opals. Furnished with complete seriousness, and empty.",
     displayOrder: 4,
   },
   {
@@ -78,8 +70,6 @@ export const collections: Collection[] = [
     heroLayout: "typographic",
     featuredQuote:
       "A face is the last thing to surrender.",
-    yearStart: 2024,
-    yearEnd: 2026,
     descriptionShort:
       "Portraits of characters — people met, imagined or remembered, drawn with affection and edge.",
     descriptionLong:
@@ -94,12 +84,10 @@ export const collections: Collection[] = [
     heroLayout: "standard",
     featuredQuote:
       "More about what a place leaves behind than the place.",
-    yearStart: 2024,
-    yearEnd: 2024,
     descriptionShort:
-      "Streets, light and stillness — places remembered more than seen.",
+      "Open ground and a far horizon — a place remembered more than seen.",
     descriptionLong:
-      "Places & Memory steps outside the studio. Weathered doorways, sunlit lanes, a waiting dog — quiet scenes held in warm light, more about the feeling a place leaves behind than the place itself.",
+      "Places & Memory steps outside the studio: open country, a low horizon and light that is in no hurry. More about the feeling a place leaves behind than the place itself.",
     displayOrder: 6,
   },
   {
@@ -110,8 +98,6 @@ export const collections: Collection[] = [
     heroLayout: "diptych",
     featuredQuote:
       "A vessel is an argument for keeping something.",
-    yearStart: 2024,
-    yearEnd: 2026,
     descriptionShort:
       "Husks, pods and petals that cradle a gemstone heart — vessels made to keep something precious.",
     descriptionLong:
@@ -127,8 +113,6 @@ export const collections: Collection[] = [
     heroLayout: "typographic",
     featuredQuote:
       "Weight against lightness; permanence against passing.",
-    yearStart: 2026,
-    yearEnd: 2026,
     descriptionShort:
       "Objects arranged to carry an argument — old symbols painted plainly.",
     descriptionLong:

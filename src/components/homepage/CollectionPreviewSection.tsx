@@ -3,7 +3,12 @@
 import Link from "next/link";
 import { useState } from "react";
 import { collections } from "@/content/collections";
-import { artworks, getArtwork, getCollectionCover } from "@/content/artworks";
+import {
+  artworks,
+  getArtwork,
+  getCollectionCover,
+  getCollectionPeriod,
+} from "@/content/artworks";
 import { ArtworkImage } from "@/components/artwork/ArtworkImage";
 import { SectionLabel } from "@/components/typography/SectionLabel";
 import { ArrowLink } from "@/components/ui/ArrowLink";
@@ -50,8 +55,11 @@ export function CollectionPreviewSection() {
                     {c.title}
                   </span>
                   <span className="hidden shrink-0 type-small text-[var(--color-text-secondary)] sm:block">
-                    {c.yearStart}
-                    {c.yearEnd && c.yearEnd !== c.yearStart ? `–${c.yearEnd}` : ""}
+                    {c.yearStart
+                      ? `${c.yearStart}${
+                          c.yearEnd && c.yearEnd !== c.yearStart ? `–${c.yearEnd}` : ""
+                        }`
+                      : getCollectionPeriod(c.id)}
                   </span>
                 </Link>
               </li>

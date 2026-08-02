@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { artworks } from "@/content/artworks";
+import { artworks, isPublished } from "@/content/artworks";
 import { collections } from "@/content/collections";
 
 const BASE = "https://dukelume.com";
@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   );
 
   const artworkRoutes = artworks
-    .filter((a) => a.status !== "hidden" && a.status !== "draft")
+    .filter(isPublished)
     .map((a) => ({ url: `${BASE}/artwork/${a.slug}`, priority: 0.6 }));
 
   const collectionRoutes = collections.map((c) => ({

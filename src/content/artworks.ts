@@ -68,7 +68,7 @@ export const artworks: Artwork[] = [
     descriptionLong:
       "The Connoisseurs imagines a household where taste is everything and no one is quite human. One reads Le Monde de l'Art; the other watches the city from the balcony. A gentle satire of refinement, painted with complete seriousness.",
     edition: DIGITAL_EDITION,
-    status: "inquiry_only",
+    status: "hidden",
     featured: true,
     homepageOrder: 4,
     galleryOrder: 2,
@@ -149,7 +149,7 @@ export const artworks: Artwork[] = [
     descriptionLong:
       "Grande Dame is a study in refusing to fade. Every choice — the lilac hair, the tinted glasses, the crimson mouth — is a small act of defiance, worn with total ease.",
     edition: DIGITAL_EDITION,
-    status: "inquiry_only",
+    status: "hidden",
     featured: true,
     homepageOrder: 2,
     galleryOrder: 5,
@@ -282,7 +282,7 @@ export const artworks: Artwork[] = [
     descriptionLong:
       "The Appointment continues the world of The Connoisseurs — a life of complete leisure lived by creatures who are not quite people. Here a poodle reads PAPLUX while a groomer sees to its paw. Deadpan luxury.",
     edition: DIGITAL_EDITION,
-    status: "inquiry_only",
+    status: "hidden",
     featured: true,
     homepageOrder: 6,
     galleryOrder: 10,
@@ -395,7 +395,7 @@ export const artworks: Artwork[] = [
     descriptionLong:
       "At the Threshold is quiet and unstaged — a village dog sitting where the light meets the dark of an old doorway. A picture about waiting, and about places that hold their own memory.",
     edition: DIGITAL_EDITION,
-    status: "inquiry_only",
+    status: "hidden",
     featured: false,
     galleryOrder: 14,
     displaySize: "wide",
@@ -421,7 +421,7 @@ export const artworks: Artwork[] = [
     descriptionLong:
       "Blue Hour, Ostuni is a postcard from a place remembered more than seen — a weathered blue camper wedged into a narrow stone lane, flowers at its feet, warm light on old plaster.",
     edition: DIGITAL_EDITION,
-    status: "inquiry_only",
+    status: "hidden",
     featured: false,
     galleryOrder: 15,
     displaySize: "wide",
@@ -447,7 +447,7 @@ export const artworks: Artwork[] = [
     descriptionLong:
       "Arcadia turns a portrait into a country. A Mediterranean scene — cypress trees, a gilded temple, a thin gold moon — is painted across the skin, so the person and the place they carry become one image.",
     edition: DIGITAL_EDITION,
-    status: "inquiry_only",
+    status: "hidden",
     featured: false,
     galleryOrder: 16,
     displaySize: "tall",
@@ -473,7 +473,7 @@ export const artworks: Artwork[] = [
     descriptionLong:
       "The Muse is a persona rather than a person: a faceless figure in a wide hat and liquid gown, cast as if in enamelled metal and set in a marble niche. Style itself, standing still.",
     edition: DIGITAL_EDITION,
-    status: "inquiry_only",
+    status: "hidden",
     featured: false,
     galleryOrder: 17,
     displaySize: "tall",
@@ -606,7 +606,7 @@ export const artworks: Artwork[] = [
     descriptionLong:
       "The Cradle is the darkest of the Reliquaries — a metallic pod opened in near-blackness, its turquoise heart veiled in gauze while fine roots search the air above. Protection rendered as architecture.",
     edition: DIGITAL_EDITION,
-    status: "inquiry_only",
+    status: "hidden",
     featured: false,
     galleryOrder: 22,
     whitespaceBefore: true,
@@ -659,7 +659,7 @@ export const artworks: Artwork[] = [
     descriptionLong:
       "Amber Vespers is the warmest of the Reliquaries — a peach-and-rose bract parted to show amber lit from within, sealed in a translucent membrane. Evening light, kept.",
     edition: DIGITAL_EDITION,
-    status: "inquiry_only",
+    status: "hidden",
     featured: false,
     galleryOrder: 24,
     displaySize: "tall",
@@ -714,7 +714,7 @@ export const artworks: Artwork[] = [
     descriptionLong:
       "The Patriarch is the head of the household the Imagined Interiors keep circling — a lion in emerald velvet, entirely at ease while two butlers attend to the fire, the silver and the flame at the end of his cigar. Old money, older instincts.",
     edition: DIGITAL_EDITION,
-    status: "inquiry_only",
+    status: "hidden",
     featured: false,
     galleryOrder: 26,
     displaySize: "wide",
@@ -878,7 +878,7 @@ export const artworks: Artwork[] = [
       "A single golden tree standing alone in an open plain, under a sky that takes up most of the frame.",
     descriptionLong:
       "The Long Field gives almost everything to the sky and the grass, and lets one tree carry the rest. The horizon sits low and far, the colour never rises above ochre and dust — a place recalled rather than visited, where the only thing memory kept in focus is the tree.",
-    relatedArtworkIds: ["blue-hour-ostuni", "at-the-threshold"],
+    relatedArtworkIds: ["the-crossing", "the-hermitage"],
     edition: DIGITAL_EDITION,
     status: "inquiry_only",
     featured: true,
@@ -912,7 +912,7 @@ export const artworks: Artwork[] = [
       "An oyster shell held open around a great pearl, its rough crust giving way to a mother-of-pearl interior.",
     descriptionLong:
       "Nacre answers the question the rest of the Reliquaries leave open. Every other vessel in the series was given something to keep; this one made it. The shell is split between a barnacled grey exterior and an interior of layered mother-of-pearl, and the pearl sitting in it is too large to be anything but deliberate.",
-    relatedArtworkIds: ["the-orb", "the-cradle"],
+    relatedArtworkIds: ["the-orb", "the-clutch"],
     edition: DIGITAL_EDITION,
     status: "inquiry_only",
     featured: true,
@@ -946,9 +946,9 @@ export const artworks: Artwork[] = [
       "A heron cast in white and gold, standing perfectly still on a marble plinth in a bright, near-empty room.",
     descriptionLong:
       "Gilded Heron is a room with a single occupant, and the occupant is an object. Polished metal on marble, a large canvas behind it, nothing else asked to happen — a house that keeps a bird which will never move, and treats that as entirely ordinary.",
-    relatedArtworkIds: ["opal-tower", "the-patriarch"],
+    relatedArtworkIds: ["opal-tower", "gold-lining"],
     edition: DIGITAL_EDITION,
-    status: "inquiry_only",
+    status: "hidden",
     featured: false,
     // Re-filed rather than newly added, so it keeps its place in the sequence
     // (just after The Appointment) instead of claiming the newest slot — which
@@ -1012,7 +1012,7 @@ export const artworks: Artwork[] = [
       "A dry husk split open on a clutch of turquoise eggs, bedded in pale fibre.",
     descriptionLong:
       "The Clutch is the Reliquaries idea taken at its most literal: a pod broken open to show what it was carrying, and what it was carrying is stone. Veined turquoise eggs sit in fibre that behaves exactly like down — every instinct of a nest, and nothing in it that was ever alive.",
-    relatedArtworkIds: ["seedkeeper", "the-cradle"],
+    relatedArtworkIds: ["seedkeeper", "agate-bloom"],
     edition: DIGITAL_EDITION,
     status: "inquiry_only",
     featured: false,
@@ -1045,7 +1045,7 @@ export const artworks: Artwork[] = [
       "A woman in a patterned turban and a wide collar of black cabochons, painted in old-master oil.",
     descriptionLong:
       "The Envoy carries herself like someone who has already been received. Gold filigree, jet stones, a turban wound in faded red and blue — and a gaze that has decided in advance how much it will give you. The paint stays dark and slow so the jewels do all the talking.",
-    relatedArtworkIds: ["the-empress", "grande-dame"],
+    relatedArtworkIds: ["the-empress", "homeland"],
     edition: DIGITAL_EDITION,
     status: "inquiry_only",
     featured: false,
@@ -1111,7 +1111,7 @@ export const artworks: Artwork[] = [
       "A bud parting around a faceted crystal shot through with green.",
     descriptionLong:
       "Chrysalis puts the treasure where the flower should be. Pink-and-cream bracts open just far enough to show a quartz point with an emerald field caught inside it — a bloom that skipped the petal stage and went straight to stone.",
-    relatedArtworkIds: ["agate-bloom", "amber-vespers"],
+    relatedArtworkIds: ["agate-bloom", "seedkeeper"],
     edition: DIGITAL_EDITION,
     status: "inquiry_only",
     featured: false,
@@ -1278,7 +1278,7 @@ export const artworks: Artwork[] = [
       "Chorus is the loudest voice in Personae and the one with the least detail. The face is a single dark profile against a gold disc; everything else — teal, cream, magenta, a column of burnt orange, a gold line ruled straight across the middle — is flat blocks answering it. No features are drawn at all, and the likeness still holds the picture together.",
     relatedArtworkIds: ["homeland", "grande-dame"],
     edition: DIGITAL_EDITION,
-    status: "inquiry_only",
+    status: "hidden",
     featured: false,
     galleryOrder: 43,
     displaySize: "wide",
@@ -1365,16 +1365,43 @@ export function getArtwork(id: string): Artwork | undefined {
   return artworks.find((a) => a.id === id || a.slug === id);
 }
 
+/**
+ * Is this work on show?
+ *
+ * Retiring a work is a curatorial act, not a deletion: `hidden` and `draft`
+ * keep the entry, the files and the crops, and take the work out of the public
+ * site completely — listings, collection pages, companions, its own URL and the
+ * sitemap. Every reader of the catalogue goes through this, so a work can be
+ * put back by changing one word.
+ */
+export function isPublished(a: Artwork): boolean {
+  return a.status !== "hidden" && a.status !== "draft";
+}
+
 export function getFeaturedArtworks(): Artwork[] {
   return artworks
-    .filter((a) => a.featured)
+    .filter((a) => a.featured && isPublished(a))
     .sort((a, b) => (a.homepageOrder ?? 999) - (b.homepageOrder ?? 999));
 }
 
 export function getArtworksByCollection(collectionId: string): Artwork[] {
   return artworks
-    .filter((a) => a.collectionId === collectionId)
+    .filter((a) => a.collectionId === collectionId && isPublished(a))
     .sort((a, b) => (a.galleryOrder ?? 999) - (b.galleryOrder ?? 999));
+}
+
+/**
+ * The years a collection actually spans, read from the works on show rather
+ * than declared by hand — retiring a work or adding one moves it by itself, so
+ * the period can never drift away from what is hanging. A collection may still
+ * state its own period via yearStart / yearEnd when the curator wants one.
+ */
+export function getCollectionPeriod(collectionId: string): string | undefined {
+  const years = getArtworksByCollection(collectionId).map((a) => a.year);
+  if (years.length === 0) return undefined;
+  const from = Math.min(...years);
+  const to = Math.max(...years);
+  return from === to ? String(from) : `${from}–${to}`;
 }
 
 /**
@@ -1406,7 +1433,10 @@ export function getRelatedArtworks(slug: string, limit = 3): Artwork[] {
 
   const picked: Artwork[] = [];
   const add = (a?: Artwork) => {
-    if (a && a.slug !== slug && !picked.some((p) => p.slug === a.slug)) picked.push(a);
+    // A curator-chosen companion is still subject to the work being on show —
+    // otherwise a retired work would be pulled back into view from here.
+    if (a && isPublished(a) && a.slug !== slug && !picked.some((p) => p.slug === a.slug))
+      picked.push(a);
   };
 
   // 1 — manual
@@ -1472,8 +1502,7 @@ export function getCollectionNeighbours(slug: string): {
 
 /** Works that belong in the public gallery (published / for viewing). */
 export function getGalleryArtworks(): Artwork[] {
-  const hidden = new Set(["hidden", "draft"]);
   return artworks
-    .filter((a) => !hidden.has(a.status))
+    .filter(isPublished)
     .sort((a, b) => (a.galleryOrder ?? 999) - (b.galleryOrder ?? 999));
 }

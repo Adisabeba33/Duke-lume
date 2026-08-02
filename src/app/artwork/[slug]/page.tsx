@@ -4,9 +4,10 @@ import { notFound } from "next/navigation";
 import fs from "node:fs";
 import path from "node:path";
 import {
-  artworks,
   getArtwork,
   getCollectionNeighbours,
+  getGalleryArtworks,
+  isPublished,
 } from "@/content/artworks";
 import { getCollection, getOrderedCollections } from "@/content/collections";
 import { ArtworkViewer } from "@/components/artwork/ArtworkViewer";
@@ -17,7 +18,7 @@ import type { Artwork, ArtworkStatus } from "@/content/types";
 const BASE = "https://dukelume.com";
 
 export function generateStaticParams() {
-  return artworks.map((a) => ({ slug: a.slug }));
+  return getGalleryArtworks().map((a) => ({ slug: a.slug }));
 }
 
 export async function generateMetadata({
@@ -94,7 +95,9 @@ export default async function ArtworkPage({
 }) {
   const { slug } = await params;
   const artwork = getArtwork(slug);
-  if (!artwork) notFound();
+  // A retired work keeps its entry but not its page: out of the exhibition
+  // means out of reach, including for anyone holding the old link.
+  if (!artwork || !isPublished(artwork)) notFound();
 
   const collection = artwork.collectionId
     ? getCollection(artwork.collectionId)
