@@ -1326,6 +1326,39 @@ export const artworks: Artwork[] = [
       alt: "A heavily impasto palette-knife still life of peony-like flowers in plum, cream, blush and gold rising from a broken white vessel seamed with gold, with a dried lotus seed pod on a black stem, one gilded leaf and fallen petals on the table, against a blocked pink, cream and black background.",
     },
   },
+  {
+    id: "gold-lining",
+    slug: "gold-lining",
+    title: "Gold Lining",
+    year: 2026,
+    conceptLine: "The bowl keeps its gold on the inside",
+    orientation: "portrait",
+    style: "painterly",
+    collectionId: "ornamental-nature",
+    medium: "Digital painting",
+    processNote:
+      "The wall was built as overlapping panels of knife-work and left cracked throughout, so nothing in the picture holds a clean edge except the gold inside the bowl.",
+    descriptionShort:
+      "A blossom branch in a round cream vessel, beside a black bowl gilded on the inside.",
+    descriptionLong:
+      "Gold Lining sets three plain things against a wall of blocks: a heavy round vessel, a bare branch carrying a handful of white blossoms, and a black bowl that keeps its gold where only someone standing over it would find it. Everything on show is chalk, ash and cracked plaster. The one rich surface in the picture is turned away.",
+    relatedArtworkIds: ["the-mend", "the-herbarium"],
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
+    featured: false,
+    galleryOrder: 45,
+    displaySize: "tall",
+    subjectTags: ["vessel", "branch", "still life"],
+    colorTags: ["cream", "gold", "rust"],
+    moodTags: ["quiet", "spare", "still"],
+    tone: ["#2c2a26", "#c9a45a"],
+    image: {
+      src: "/artworks/gold-lining.jpg",
+      width: 1023,
+      height: 1537,
+      alt: "An impasto palette-knife still life of a large round cream vessel holding a bare branch with a few white blossoms, beside a black bowl lined with gold, standing on a pale ledge against a wall of blocked black, cream, gold and rust panels.",
+    },
+  },
 ];
 
 export function getArtwork(id: string): Artwork | undefined {
