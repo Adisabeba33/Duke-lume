@@ -105,6 +105,19 @@ export const collections: Collection[] = [
       "Allegories gathers the works that mean something beyond themselves: a balance, a gate standing open, one tree holding a whole plain. Each is a small proposition set out in paint — weight against lightness, permanence against passing — left for the viewer to settle.",
     displayOrder: 7,
   },
+  {
+    id: "conditions",
+    slug: "conditions",
+    title: "Conditions",
+    number: "08",
+    heroLayout: "standard",
+    featuredQuote: "The room is ordinary. One thing in it is not.",
+    descriptionShort:
+      "Ordinary places under one impossible condition, photographed straight.",
+    descriptionLong:
+      "Conditions is the cold room of the gallery. No gold, no impasto, nothing hung with stones — an ordinary place, recorded plainly, with exactly one thing in it that could not happen. The works argue nothing and explain nothing. They hold still long enough to be noticed, and leave it there.",
+    displayOrder: 8,
+  },
 ];
 
 export function getCollection(id: string): Collection | undefined {

@@ -1392,6 +1392,74 @@ export const artworks: Artwork[] = [
       alt: "A photorealistic still life of a gnarled dark bough curled around a large smoky quartz crystal point and flowering with deep red plum blossom, standing on a cracked marble plinth veined with gold, against a gilded disc on a weathered plaster wall.",
     },
   },
+  {
+    id: "white-out",
+    slug: "white-out",
+    title: "White Out",
+    year: 2026,
+    conceptLine: "Nine tenths of the picture is weather",
+    orientation: "portrait",
+    style: "photorealistic",
+    collectionId: "conditions",
+    medium: "Digital artwork",
+    processNote:
+      "Left flat and uncorrected — no vignette, no added contrast, nothing darkened at the edges to help the eye find the figure. Whoever looks has to do the work.",
+    descriptionShort:
+      "A figure walking away into falling snow, their tracks already closing over.",
+    descriptionLong:
+      "White Out gives almost the whole frame to nothing at all. A dark coat, a line of footprints filling in behind it, and snow thick enough to have taken the horizon with it. It is the quietest work in the gallery and the only one that is mostly empty — which is why it hangs at full width, where the emptiness is the subject rather than a fault.",
+    relatedArtworkIds: ["the-weather-inside", "the-long-field"],
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
+    featured: false,
+    galleryOrder: 47,
+    // Given the full-width slot deliberately: at thumbnail size a near-white
+    // work reads as an image that failed to load (§11).
+    displaySize: "full",
+    subjectTags: ["figure", "snow", "field"],
+    colorTags: ["white", "ash", "charcoal"],
+    moodTags: ["quiet", "solitary", "stark"],
+    tone: ["#e6e7e8", "#8f9296"],
+    image: {
+      src: "/artworks/white-out.jpg",
+      width: 1024,
+      height: 1536,
+      alt: "A near-white photograph of a lone figure in a dark hooded coat seen from behind, walking away across an open snowfield in heavy falling snow, with a line of footprints filling in behind them and no visible horizon.",
+    },
+  },
+  {
+    id: "the-weather-inside",
+    slug: "the-weather-inside",
+    title: "The Weather Inside",
+    year: 2026,
+    conceptLine: "One cloud, and it chose a bedroom",
+    orientation: "portrait",
+    style: "photorealistic",
+    collectionId: "conditions",
+    medium: "Digital artwork",
+    processNote:
+      "One window as the only light, deep focus front to back, and not a trace of glow anywhere on the cloud. The picture only holds if nothing in it is treated as magic.",
+    descriptionShort:
+      "A rain cloud the size of a table hangs over a made bed, raining steadily onto it.",
+    descriptionLong:
+      "The Weather Inside puts a storm indoors and then refuses to make anything of it. The cloud is grey and physical, lit from the window like everything else in the room; the bedspread has gone black with water and a puddle has spread across the boards. The chair is dry. The room is otherwise in perfect order, and that is what makes it strange.",
+    relatedArtworkIds: ["white-out", "the-moon-window"],
+    edition: DIGITAL_EDITION,
+    status: "inquiry_only",
+    featured: false,
+    galleryOrder: 48,
+    displaySize: "tall",
+    subjectTags: ["cloud", "room", "rain"],
+    colorTags: ["grey", "oatmeal", "slate"],
+    moodTags: ["quiet", "strange", "deadpan"],
+    tone: ["#3f4245", "#c9c2b4"],
+    image: {
+      src: "/artworks/the-weather-inside.jpg",
+      width: 1024,
+      height: 1536,
+      alt: "A photograph of an ordinary bedroom in cold daylight with a small grey rain cloud hanging at eye level above the bed, rain falling from it in straight lines onto a soaked dark bedspread and spreading as a puddle across the wooden floorboards, while the wooden chair and the rest of the room stay dry.",
+    },
+  },
 ];
 
 export function getArtwork(id: string): Artwork | undefined {
